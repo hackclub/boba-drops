@@ -1,0 +1,132 @@
+body {
+    color: #F6D193;
+    margin: 0;
+    font-family: "Fraunces", "monospaced";
+    background: #C76B0F;
+}
+#header {
+    padding: 1em;
+    background-color: #C76B0F;
+    background-image: linear-gradient(to bottom right, #C76B0F, #A25404);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    flex-direction: column;
+}
+#header img {
+    max-width: 50rem;
+}
+
+#footer {
+    padding: 1em;
+    text-align: center;
+    background: #603101;
+}
+
+a {
+    color: inherit;
+}
+
+.boba-number {
+    background-image: url('images/boba.svg');
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    padding: 4px;
+}
+
+.container {
+    padding: 1em;
+    background-image: linear-gradient(to bottom right, #C76B0F, #A25404);
+    /* max-width: 24em; */
+
+}
+
+.section {
+    max-width: 42em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-steps {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: 1em;
+    max-width: 50rem;
+    margin: 0 auto;
+    /* max-width:  */
+}
+
+@media (max-width: 32srem) {
+    .grid-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+.item-step {
+    padding: 1em;
+    color: white;
+    border-radius: 1em;
+    display: flex;
+    position: relative;
+    aspect-ratio: 2 / 1;
+}
+
+.item-text {
+    position: absolute;
+    bottom: 0px;
+    right: 1rem;
+    color: #F6D193;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: #603101 1px 1px 8px;
+}
+
+#subtitle {
+    display: inherit;
+    /* font family: gunydrops */
+}
+
+.yt-embed {
+    /* width: 100%; */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1em;
+}
+.spacer {
+    margin: 1em;
+}
+.banner {
+    position: absolute;
+    top: -10px;
+    left: var(--spacing-4);
+  }
+  
+  .banner img {
+    height: 80px;
+  }
+  
+  .banner:hover img {
+    animation: wave-flag 0.5s linear infinite alternate;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .banner:hover img {
+      transition: 0.1875s cubic-bezier(0.375, 0, 0.675, 1) transform;
+      transform-origin: top left;
+    }
+  }
+
+  @keyframes wave-flag {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-5deg);
+    }
+  }
+
+button {
+    background-color: #603101!important;
+}
