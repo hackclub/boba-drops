@@ -3,7 +3,8 @@
   <span>Build your first site</span><span> • </span><span>Get free boba</span>
 </p>
 <hr />
-_:warning: Please pardon our dust: This program is currently in beta! You're free to try it out currently, but we aren't marketing it yet._
+
+:warning: _Please pardon our dust: This program is currently in beta! You're free to try it out currently, but we aren't marketing it yet._
 
 To qualify:
 
