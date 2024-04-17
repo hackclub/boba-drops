@@ -1,8 +1,9 @@
 body {
     color: #F6D193;
     margin: 0;
-    font-family: "Fraunces", "monospaced";
+    font-family: "Fraunces", monospace;
     background: #C76B0F;
+    font-size: 1.5em;
 }
 #header {
     padding: 1em;
