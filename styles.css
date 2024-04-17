@@ -29,6 +29,23 @@ a {
     color: inherit;
 }
 
+#form-link {
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+    background: #603101;
+    border-radius: 0.5em;
+    box-shadow: #603101 1px 1px 10px;
+}
+
+.hoverable {
+    transition: 0.3s;
+}
+.hoverable:hover {
+    transform: translateY(-5px);
+}
+
 .boba-number {
     background-image: url('images/boba.svg');
     width: 16px;
