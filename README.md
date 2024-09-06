@@ -4,6 +4,8 @@
 </p>
 <hr />
 
+> Newly released: Are you a club leader? Getting a hack club kick started at your school? Sign up for club boba drops this semester.
+
 To qualify:
 
 - Be in high school (or younger!)
