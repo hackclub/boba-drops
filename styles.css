@@ -180,3 +180,10 @@ button {
     padding: 1em;
     border-radius: 10px;
 }
+
+.container > h3 {
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 1em;
+
+}
