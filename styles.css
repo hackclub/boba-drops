@@ -2,13 +2,13 @@ body {
     color: #F6D193;
     margin: 0;
     font-family: "Fraunces", monospace;
-    background: #C76B0F;
+    background: #05445e;
     font-size: 1.5em;
 }
 #header {
     padding: 1em;
-    background-color: #C76B0F;
-    background-image: linear-gradient(to bottom right, #C76B0F, #A25404);
+    background-color: #41729F;
+    background-image: linear-gradient(to bottom right, #05445e, #704a24);
     display:flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ body {
 #footer {
     padding: 1em;
     text-align: center;
-    background: #603101;
+    background: #003060    ;
 }
 
 a {
@@ -34,9 +34,9 @@ a {
     margin-left: auto;
     margin-right: auto;
     padding: 0.5em;
-    background: #603101;
+    background: #05445e;
     border-radius: 0.5em;
-    box-shadow: #603101 1px 1px 10px;
+    box-shadow: #05445e 1px 1px 10px;
 }
 
 .hoverable {
@@ -56,7 +56,7 @@ a {
 
 .container {
     padding: 1em;
-    background-image: linear-gradient(to bottom right, #C76B0F, #A25404);
+    background-image: linear-gradient(to bottom right, #05445e, #05445e);
     
 
 }
@@ -154,7 +154,7 @@ button {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #603101;
+    background-color: #d4f1f4;
     width: auto;
     padding: 0.5em 1em;
     border-radius: 10px;
@@ -176,7 +176,7 @@ button {
     margin-top: 10px;
     font-size: 16px;
     color: #F6D193;
-    background-color: #4c2a0d;
+    background-color: #189ab4;    ;
     padding: 1em;
     border-radius: 10px;
 }
