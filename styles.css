@@ -76,7 +76,7 @@ a {
     /* max-width:  */
 }
 
-@media (max-width: 32srem) {
+@media (max-width: 32rem) {
     .grid-steps {
         grid-template-columns: 1fr;
     }
