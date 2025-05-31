@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Boba Drops</title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=450">
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <a class="banner" href="https://hackclub.com/">
+    <img src="https://contribute.hackclub.com/images/flag-orpheus-top.png"
+      alt="Dinosaur arm holding flag that reads 'Hack Club'">
+  </a>
+
+  <a class="top-button" href="index.html">Go back</a>
+
+  <div id="header-gallery">
+    <h1>Gallery</h1>
+    <p>Check out created websites and track your submission!</p>
+
+    <div class="status-list">
+      <a id="status-all" href="gallery.html?status=All">All</a>
+      <a id="status-approved" href="gallery.html?status=Approved">Approved</a>
+      <a id="status-pending" href="gallery.html?status=Pending">Pending</a>
+      <a id="status-rejected" href="gallery.html?status=Rejected">Rejected</a>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="container" id="submissions-content">
+      <div id="grid-gallery">
+        Loading...
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+
+    <p style="display: flex; gap: 4px; justify-content: center;">Made with <img src="images/boba-parrot.gif" alt="boba"
+        title="A parrot with boba" height="20px" /> by <a href="https://hackclub.com">Hack Club</a>.</p>
+  </div>
+  <script src="gallery.js"></script>
+</body>
+
+</html>

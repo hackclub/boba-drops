@@ -19,6 +19,41 @@ body {
     max-width: 50rem;
 }
 
+#header-gallery {
+    padding: 2em;
+    background-color: #C76B0F;
+    background-image: linear-gradient(to bottom right, #C76B0F, #A25404);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#header-gallery h1 {
+    margin: 0;
+}
+
+.top-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.status-list {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.status-list p {
+    margin: 0;
+}
+
+.status-list > a.active {
+    color: #f59433;
+}
+
 #footer {
     padding: 1em;
     text-align: center;
@@ -76,10 +111,93 @@ a {
     /* max-width:  */
 }
 
-@media (max-width: 32rem) {
+#grid-gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    gap: 1em;
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 64rem) {
+    #grid-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 48rem) {
     .grid-steps {
         grid-template-columns: 1fr;
     }
+    #grid-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-submission {
+    padding: 1em;
+    background-color: #A25404;
+    border-radius: 1em;
+}
+
+.grid-submission > .links a {
+    text-decoration: none;
+}
+
+.submission-photo {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 6px;
+    border-radius: 10px;
+}
+
+.status {
+    border-radius: 1em;
+    padding: 3px 10px;
+    font-size: 16px;
+}
+
+.status.approved {
+    background: green;
+}
+
+.status.approved::after {
+    content: "Approved";
+}
+
+.status.pending {
+    background: rgb(196, 160, 0);
+}
+
+.status.pending::after {
+    content: "Pending";
+}
+
+.status.rejected {
+    background: red;
+}
+
+.status.rejected::after {
+    content: "Rejected";
+}
+
+.links {
+    margin-top: 8px;
+}
+
+.github-button {
+    background-color: #4c2a0d;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.demo-button {
+    background-color: #733e08;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .item-step {
