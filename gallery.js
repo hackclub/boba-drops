@@ -46,9 +46,8 @@ async function fetchData() {
         <div class="submission-photo"
           style="background-image: url(${photoUrl});">
         </div>
-        <span class="status ${submission.fields.Status.toLowerCase()}">
-          
-        </span>
+        <span class="status ${submission.fields.Status.toLowerCase()}"></span>
+        <p style="margin:0; margin-top:8px; font-size: 18px">Made by ${submission.fields.Name}</p>
         <div class="links">
           <a href="${submission.fields['Code URL']}" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
           <a href="${submission.fields['Playable URL']}" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
@@ -64,4 +63,21 @@ async function fetchData() {
   } else {
     document.getElementById("grid-gallery").innerHTML = submissionsPush;
   }
+}
+
+async function fetchEventCodes() {
+  const params = new URLSearchParams();
+  if (submissionStatus !== "All") {
+    params.append(
+      "select",
+      JSON.stringify({ filterByFormula: `{Status} = '${submissionStatus}'` })
+    );
+  }
+  params.append("cache", true);
+  const response = await fetch(
+    `https://${BASE_DOMAIN}/v0.1/Boba Drops/Websites?${params}`
+  );
+  const submissions = await response.json();
+
+  console.log(submissions);
 }
