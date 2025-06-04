@@ -2,29 +2,40 @@ const BASE_DOMAIN = "api2.hackclub.com";
 
 let submissionStatus = "All";
 const urlParams = new URLSearchParams(window.location.search);
-const statusQuery = urlParams.get('status');
+const statusQuery = urlParams.get("status");
+let eventCode = urlParams.get("eventCode") || "";
 
-if ([
-  "All",
-  "Approved",
-  "Pending",
-  "Rejected",
-].includes(statusQuery)) {
+document.getElementById("event-input").value = eventCode
+
+if (["All", "Approved", "Pending", "Rejected"].includes(statusQuery)) {
   submissionStatus = statusQuery;
 }
 
-document.getElementById(`status-${submissionStatus.toLowerCase()}`).classList.add("active");
+document
+  .getElementById(`status-${submissionStatus.toLowerCase()}`)
+  .classList.add("active");
 
 fetchData();
 
 async function fetchData() {
   const params = new URLSearchParams();
+  let filterFormula = "AND(";
   if (submissionStatus !== "All") {
-    params.append(
-      "select",
-      JSON.stringify({ filterByFormula: `{Status} = '${submissionStatus}'` })
-    );
+    filterFormula += `{Status} = '${submissionStatus}'`;
   }
+  if (eventCode !== "") {
+    if (submissionStatus !== "All") {
+      filterFormula += ",";
+    }
+    filterFormula += `{Event Code} = '${eventCode}'`;
+  }
+
+  filterFormula += ")";
+
+  params.append(
+    "select",
+    JSON.stringify({ filterByFormula: filterFormula })
+  );
   params.append("cache", true);
   const response = await fetch(
     `https://${BASE_DOMAIN}/v0.1/Boba Drops/Websites?${params}`
@@ -36,8 +47,11 @@ async function fetchData() {
   let submissionsPush = "";
   submissions.forEach((submission) => {
     let photoUrl = "";
-    if (!submission.fields.Screenshot || submission.fields.Screenshot.length === 0) {
-      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee0109f20430335ebb5cd3297a973ce244ed01cf_depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
+    if (
+      !submission.fields.Screenshot ||
+      submission.fields.Screenshot.length === 0
+    ) {
+      ("https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee0109f20430335ebb5cd3297a973ce244ed01cf_depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg");
     } else {
       photoUrl = submission.fields.Screenshot[0].url;
     }
@@ -47,15 +61,20 @@ async function fetchData() {
           style="background-image: url(${photoUrl});">
         </div>
         <span class="status ${submission.fields.Status.toLowerCase()}"></span>
-        <p style="margin:0; margin-top:8px; font-size: 18px">Made by ${submission.fields.Name}</p>
+        <p style="margin:0; margin-top:8px; font-size: 18px">Made by ${
+          submission.fields.Name
+        }</p>
         <div class="links">
-          <a href="${submission.fields['Code URL']}" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
-          <a href="${submission.fields['Playable URL']}" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
+          <a href="${
+            submission.fields["Code URL"]
+          }" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
+          <a href="${
+            submission.fields["Playable URL"]
+          }" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
         </div>
       </div>
     `;
   });
-
 
   if (submissionsPush === "") {
     document.getElementById("submissions-content").innerHTML =
@@ -65,19 +84,9 @@ async function fetchData() {
   }
 }
 
-async function fetchEventCodes() {
-  const params = new URLSearchParams();
-  if (submissionStatus !== "All") {
-    params.append(
-      "select",
-      JSON.stringify({ filterByFormula: `{Status} = '${submissionStatus}'` })
-    );
-  }
-  params.append("cache", true);
-  const response = await fetch(
-    `https://${BASE_DOMAIN}/v0.1/Boba Drops/Websites?${params}`
-  );
-  const submissions = await response.json();
-
-  console.log(submissions);
-}
+const form = document.getElementById("event-code-search");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const eventCode = document.getElementById("event-input").value.trim();
+  window.location.href = `?eventCode=${eventCode}&status=${submissionStatus}`;
+});
