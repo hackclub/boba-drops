@@ -305,3 +305,44 @@ button {
     padding-bottom: 1em;
 
 }
+
+.event-code-form {
+    display: flex;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.event-code-input {
+    background-color: #733e08;
+    border: none;
+    padding: 0.7em;
+    border-radius: 0.5em;
+    color: #F6D193;
+    font-family: "Fraunces", monospace;
+}
+
+.event-code-input::placeholder {
+    color: #F6D193;
+    font-size: 1.2em;
+    font-family: "Fraunces", monospace;
+}
+
+.event-code-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #F6D193;
+}
+
+.event-code-button {
+    border: 0;
+    padding: 0.7em;
+    border-radius: 0.5em;
+    color: #F6D193;
+    background-color: #733e08;
+    cursor: pointer;
+    font-family: "Fraunces", monospace;
+}
+
+.event-code-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #F6D193;
+}
