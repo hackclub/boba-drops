@@ -61,9 +61,6 @@ async function fetchData() {
           style="background-image: url(${photoUrl});">
         </div>
         <span class="status ${submission.fields.Status.toLowerCase()}"></span>
-        <p style="margin:0; margin-top:8px; font-size: 18px">Made by ${
-          submission.fields.Name
-        }</p>
         <div class="links">
           <a href="${
             submission.fields["Code URL"]
