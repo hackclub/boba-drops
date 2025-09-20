@@ -46,31 +46,32 @@ async function fetchData() {
 
   let submissionsPush = "";
   submissions.forEach((submission) => {
-    let photoUrl = "";
-    if (
-      !submission.fields.Screenshot ||
-      submission.fields.Screenshot.length === 0
-    ) {
-      ("https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee0109f20430335ebb5cd3297a973ce244ed01cf_depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg");
-    } else {
-      photoUrl = submission.fields.Screenshot[0].url;
-    }
+  let photoUrl = "";
+  if (
+    !submission.fields.Screenshot ||
+    submission.fields.Screenshot.length === 0
+  ) {
+    photoUrl =
+      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee0109f20430335ebb5cd3297a973ce244ed01cf_depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
+  } else {
+    photoUrl = submission.fields.Screenshot[0].url;
+  }
+
     submissionsPush += `
-      <div class="grid-submission">
-        <div class="submission-photo"
-          style="background-image: url(${photoUrl});">
-        </div>
-        <span class="status ${submission.fields.Status.toLowerCase()}"></span>
-        <div class="links">
-          <a href="${
-            submission.fields["Code URL"]
-          }" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
-          <a href="${
-            submission.fields["Playable URL"]
-          }" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
-        </div>
-      </div>
-    `;
+  <div class="grid-submission">
+    <div class="submission-photo">
+      <img src="${photoUrl}" alt="Screenshot"
+           loading="lazy"
+           onerror="this.src='https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee0109f20430335ebb5cd3297a973ce244ed01cf_depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'"/>
+    </div>
+    <span class="status ${submission.fields.Status.toLowerCase()}"></span>
+    <div class="links">
+      <a href="${submission.fields["Code URL"]}" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
+      <a href="${submission.fields["Playable URL"]}" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
+    </div>
+  </div>
+`;
+
   });
 
   if (submissionsPush === "") {
