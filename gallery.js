@@ -10,14 +10,15 @@ const itemsPerLoad = 12;
 let currentIndex = 0;
 let isLoading = false;
 
-document.getElementById("event-input").value = eventCode;
+document.getElementById("event-input").value = eventCode
 
 if (["All", "Approved", "Pending", "Rejected"].includes(statusQuery)) {
   submissionStatus = statusQuery;
 }
 
 document
-  .getElementById(`status-${submissionStatus.toLowerCase()}`)?.classList.add("active");
+  .getElementById(`status-${submissionStatus.toLowerCase()}`)
+  .classList.add("active");
 
 fetchData();
 
