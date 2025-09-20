@@ -64,10 +64,10 @@ async function fetchData() {
         <div class="links">
           <a href="${
             submission.fields["Code URL"]
-          }" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
+          }" class="github-button" target="_blank"><i class="fa-brands fa-github"></i> Github</a>
           <a href="${
             submission.fields["Playable URL"]
-          }" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
+          }" class="demo-button" target="_blank"><i class="fa-solid fa-link"></i> Demo</a>
         </div>
       </div>
     `;
