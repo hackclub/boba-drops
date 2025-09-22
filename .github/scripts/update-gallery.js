@@ -16,9 +16,7 @@ function escapeHtml(text) {
 function escapeUrl(url) {
   if (typeof url !== 'string') return '#';
   try {
-    // Validate URL format
     const urlObj = new URL(url);
-    // Only allow http/https protocols
     if (!['http:', 'https:'].includes(urlObj.protocol)) {
       return '#';
     }
@@ -35,14 +33,12 @@ function sanitizeStatus(status) {
   return validStatuses.includes(lowercased) ? lowercased : 'pending';
 }
 
-// Generate responsive image URLs for different sizes
 function generateResponsiveImageUrls(cdnUrl) {
-  if (!cdnUrl || !cdnUrl.includes('cdn.hackclub.com')) {
+  if (!cdnUrl || !cdnUrl.includes('hc-cdn.hel1.your-objectstorage.com')) {
     return { original: cdnUrl };
   }
   
-  // Generate different sizes for responsive loading
-  const baseUrl = cdnUrl.replace(/\.[^/.]+$/, ''); // Remove extension
+  const baseUrl = cdnUrl.replace(/\.[^/.]+$/, '');
   const extension = cdnUrl.match(/\.[^/.]+$/)?.[0] || '.jpg';
   
   return {
@@ -80,27 +76,11 @@ async function main() {
     const submissions = await response.json();
     console.log(`Found ${submissions.length} submissions`);
     
-    // Process submissions in batches to avoid overwhelming the CDN
-    const BATCH_SIZE = 10;
-    const optimizedSubmissions = [];
-    
-    for (let i = 0; i < submissions.length; i += BATCH_SIZE) {
-      const batch = submissions.slice(i, i + BATCH_SIZE);
-      console.log(`Processing batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(submissions.length / BATCH_SIZE)}`);
-      
-      const batchResults = await Promise.all(
-        batch.map(async (submission) => {
-          return await optimizeSubmission(submission, API_TOKEN);
-        })
-      );
-      
-      optimizedSubmissions.push(...batchResults);
-      
-      // Add a small delay between batches to be respectful to the CDN
-      if (i + BATCH_SIZE < submissions.length) {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-    }
+    const optimizedSubmissions = await Promise.all(
+      submissions.map(async (submission) => {
+        return await optimizeSubmission(submission, API_TOKEN);
+      })
+    );
     
     const galleryContent = generateGalleryHTML(optimizedSubmissions);
     const galleryChecksum = crypto.createHash('md5').update(galleryContent).digest('hex');
@@ -146,7 +126,6 @@ async function optimizeSubmission(submission, apiToken) {
     const metadataPath = `.github/data/image-metadata.json`;
     let imageMetadata = {};
     
-    // Ensure the directory exists
     const metadataDir = path.dirname(metadataPath);
     if (!fs.existsSync(metadataDir)) {
       fs.mkdirSync(metadataDir, { recursive: true });
@@ -163,7 +142,6 @@ async function optimizeSubmission(submission, apiToken) {
     
     const imageHash = crypto.createHash('md5').update(photoUrl).digest('hex');
     
-    // Check if we already have an optimized version
     if (imageMetadata[imageHash] && imageMetadata[imageHash].cdnUrl) {
       photoUrl = imageMetadata[imageHash].cdnUrl;
       isOptimized = true;
@@ -181,7 +159,6 @@ async function optimizeSubmission(submission, apiToken) {
             status: 'optimized'
           };
           
-          // Save metadata atomically
           const tempPath = `${metadataPath}.tmp`;
           fs.writeFileSync(tempPath, JSON.stringify(imageMetadata, null, 2));
           fs.renameSync(tempPath, metadataPath);
@@ -190,7 +167,6 @@ async function optimizeSubmission(submission, apiToken) {
           photoUrl = optimizedUrl;
           isOptimized = true;
         } else {
-          // Mark as attempted but failed
           imageMetadata[imageHash] = {
             originalUrl: photoUrl,
             cdnUrl: photoUrl,
@@ -205,7 +181,6 @@ async function optimizeSubmission(submission, apiToken) {
       } catch (error) {
         console.error(`Failed to optimize image ${photoUrl.substring(0, 50)}...:`, error.message);
         
-        // Mark as failed in metadata
         imageMetadata[imageHash] = {
           originalUrl: photoUrl,
           cdnUrl: photoUrl,
@@ -236,9 +211,8 @@ async function optimizeImageViaCDN(imageUrl, apiToken) {
   try {
     console.log(`Uploading to CDN: ${imageUrl.substring(0, 50)}...`);
     
-    // Add timeout to prevent hanging requests
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
     
     const uploadResponse = await fetch(CDN_API, {
       method: 'POST',
@@ -290,10 +264,8 @@ function generateGalleryHTML(submissions) {
     const title = escapeHtml(submission.fields["Title"] || 'Untitled Project');
     const description = escapeHtml(submission.fields["Description"] || '');
     
-    // Generate responsive image URLs if it's a CDN link
     const responsiveUrls = generateResponsiveImageUrls(photoUrl);
     
-    // Create srcset for responsive images
     let srcset = '';
     let sizes = '';
     if (responsiveUrls.thumbnail !== responsiveUrls.original) {
@@ -301,7 +273,6 @@ function generateGalleryHTML(submissions) {
       sizes = '(max-width: 400px) 200px, (max-width: 800px) 400px, (max-width: 1200px) 800px, 1200px';
     }
     
-    // Determine loading strategy - first few images load immediately, rest are lazy
     const loadingStrategy = index < 6 ? 'eager' : 'lazy';
     const fetchPriority = index < 3 ? 'high' : 'low';
     
@@ -325,7 +296,7 @@ function generateGalleryHTML(submissions) {
         </div>
         <div class="submission-content">
           <h3 class="submission-title">${title}</h3>
-          ${description ? `<p class="submission-description">${description.substring(0, 100)}${description.length > 100 ? '...' : ''}</p>` : ''}
+          ${description ? `<p class="submission-description">${description}</p>` : ''}
           <span class="status ${status}"></span>
           <div class="links">
             <a href="${codeUrl}" class="github-button" rel="noopener noreferrer" target="_blank">
@@ -342,7 +313,6 @@ function generateGalleryHTML(submissions) {
     `;
   });
   
-  // Add performance-related CSS and JavaScript
   const performanceEnhancements = `
     <style>
       .grid-submission {
@@ -399,12 +369,10 @@ function generateGalleryHTML(submissions) {
         line-height: 1.4;
       }
       
-      /* Improve link performance */
       .links a {
         contain: layout style;
       }
       
-      /* Lazy loading placeholder */
       .submission-photo[loading="lazy"] {
         background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
         background-size: 200% 100%;
@@ -418,7 +386,6 @@ function generateGalleryHTML(submissions) {
     </style>
     
     <script>
-      // Preload critical images
       document.addEventListener('DOMContentLoaded', function() {
         const criticalImages = document.querySelectorAll('img[fetchpriority="high"]');
         criticalImages.forEach(img => {
@@ -432,7 +399,6 @@ function generateGalleryHTML(submissions) {
         });
       });
       
-      // Intersection Observer for better lazy loading control
       if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
