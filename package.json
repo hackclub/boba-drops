@@ -1,0 +1,11 @@
+{
+  "name": "drops-of-boba",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "sharp": "0.34.4"
+  }
+}

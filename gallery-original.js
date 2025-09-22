@@ -1,5 +1,33 @@
 const BASE_DOMAIN = "api2.hackclub.com";
 
+// Security helper functions
+function escapeHtml(text) {
+  if (typeof text !== 'string') return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function escapeUrl(url) {
+  if (typeof url !== 'string') return '#';
+  try {
+    const urlObj = new URL(url);
+    if (!['http:', 'https:'].includes(urlObj.protocol)) {
+      return '#';
+    }
+    return encodeURI(url);
+  } catch {
+    return '#';
+  }
+}
+
+function sanitizeStatus(status) {
+  if (typeof status !== 'string') return 'pending';
+  const validStatuses = ['approved', 'pending', 'rejected'];
+  const lowercased = status.toLowerCase();
+  return validStatuses.includes(lowercased) ? lowercased : 'pending';
+}
+
 let submissionStatus = "All";
 const urlParams = new URLSearchParams(window.location.search);
 const statusQuery = urlParams.get("status");
@@ -82,7 +110,9 @@ function renderSubmissions() {
     return;
   }
 
-  let submissionsPush = "";
+  const gridGallery = document.getElementById("grid-gallery");
+  gridGallery.innerHTML = ''; // Clear existing content
+  
   displayedSubmissions.forEach((submission) => {
     let photoUrl = "";
     if (
@@ -93,25 +123,40 @@ function renderSubmissions() {
     } else {
       photoUrl = submission.fields.Screenshot[0].url;
     }
-    submissionsPush += `
-      <div class="grid-submission">
-        <div class="submission-photo"
-          style="background-image: url(${photoUrl});">
-        </div>
-        <span class="status ${submission.fields.Status.toLowerCase()}"></span>
-        <div class="links">
-          <a href="${
-            submission.fields["Code URL"]
-          }" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
-          <a href="${
-            submission.fields["Playable URL"]
-          }" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
-        </div>
-      </div>
-    `;
-  });
 
-  document.getElementById("grid-gallery").innerHTML = submissionsPush;
+    // Create elements safely using DOM methods
+    const gridSubmission = document.createElement('div');
+    gridSubmission.className = 'grid-submission';
+
+    const submissionPhoto = document.createElement('div');
+    submissionPhoto.className = 'submission-photo';
+    submissionPhoto.style.backgroundImage = `url('${escapeUrl(photoUrl)}')`;
+
+    const statusSpan = document.createElement('span');
+    statusSpan.className = `status ${sanitizeStatus(submission.fields.Status)}`;
+
+    const linksDiv = document.createElement('div');
+    linksDiv.className = 'links';
+
+    const githubLink = document.createElement('a');
+    githubLink.href = escapeUrl(submission.fields["Code URL"]);
+    githubLink.className = 'github-button';
+    githubLink.innerHTML = '<i class="fa-brands fa-github"></i> Github';
+
+    const demoLink = document.createElement('a');
+    demoLink.href = escapeUrl(submission.fields["Playable URL"]);
+    demoLink.className = 'demo-button';
+    demoLink.innerHTML = '<i class="fa-solid fa-link"></i> Demo';
+
+    linksDiv.appendChild(githubLink);
+    linksDiv.appendChild(demoLink);
+
+    gridSubmission.appendChild(submissionPhoto);
+    gridSubmission.appendChild(statusSpan);
+    gridSubmission.appendChild(linksDiv);
+
+    gridGallery.appendChild(gridSubmission);
+  });
 }
 
 function displayNoSubmissions() {
