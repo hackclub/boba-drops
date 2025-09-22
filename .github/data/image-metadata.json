@@ -250,5 +250,12 @@
     "timestamp": "2025-09-22T17:29:45.223Z",
     "status": "failed",
     "error": "fetch failed"
+  },
+  "31ae8f4dc66831e68846a1a4e709b2e5": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758528000000/uhpiJxoCAUra-D1SHCZKdw/rPmKr8J-qWKFUarL8W4G5a_vtxtA_CEKGsFClortP6gonzYx8RmH0SyoHDyHz6HIZz8MC2NVqZDT3Fsczjz0FfXVGBOPxsx8gEaxH8gfki52VCG2xajyFOLEfa0eA2E2huY4Fsmr8wb9krrTcv0f2Q/RHDdoneiL0oD6kzZlyzUYlsdRVto5Nlj3EwNN0qbcq8",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758528000000/uhpiJxoCAUra-D1SHCZKdw/rPmKr8J-qWKFUarL8W4G5a_vtxtA_CEKGsFClortP6gonzYx8RmH0SyoHDyHz6HIZz8MC2NVqZDT3Fsczjz0FfXVGBOPxsx8gEaxH8gfki52VCG2xajyFOLEfa0eA2E2huY4Fsmr8wb9krrTcv0f2Q/RHDdoneiL0oD6kzZlyzUYlsdRVto5Nlj3EwNN0qbcq8",
+    "timestamp": "2025-09-22T17:39:42.441Z",
+    "status": "failed",
+    "error": "fetch failed"
   }
 }
