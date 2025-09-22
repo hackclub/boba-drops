@@ -35,9 +35,10 @@ function sanitizeStatus(status) {
   return validStatuses.includes(lowercased) ? lowercased : 'pending';
 }
 
+const CDN_API = "https://cdn.hackclub.com/api/v3/new";
+
 async function main() {
   const BASE_DOMAIN = "api2.hackclub.com";
-  const CDN_API = "https://cdn.hackclub.com/api/v3/new";
   const API_TOKEN = process.env.API_TOKEN;
   
   if (!API_TOKEN) {
