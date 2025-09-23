@@ -657,5 +657,12 @@
     "cdnUrl": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/414ddd7011737b81a41f8b6e797a934a1079e9bb_V08HgdbrEUit2kJlmB7kQ7aRIhGGlVv__oCMV33JAW0",
     "timestamp": "2025-09-23T07:59:58.596Z",
     "status": "optimized"
+  },
+  "de415929d626201b996c8609546c3285": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/KCiso-re7sSBC5Cfsfl8kw/tKWDTVCYty75Q8Zlzh8kL9sypsD6qJ7m1FKS6cD97kNFJpvKfN7EcMui86lDCeVu39yoV_tWjhHdpTSN0glfB1h57NL8q1Yfm4IudbekN9SEtAkOLbbnEvrTJ06Wl9DpKa82xNh57MNWK58EVyYAZg/rUKsonGeWkPoOb_Kwqk4o31Vo8plkYdKtDgZQGxROSY",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/KCiso-re7sSBC5Cfsfl8kw/tKWDTVCYty75Q8Zlzh8kL9sypsD6qJ7m1FKS6cD97kNFJpvKfN7EcMui86lDCeVu39yoV_tWjhHdpTSN0glfB1h57NL8q1Yfm4IudbekN9SEtAkOLbbnEvrTJ06Wl9DpKa82xNh57MNWK58EVyYAZg/rUKsonGeWkPoOb_Kwqk4o31Vo8plkYdKtDgZQGxROSY",
+    "timestamp": "2025-09-23T08:27:34.949Z",
+    "status": "failed",
+    "error": "fetch failed"
   }
 }
