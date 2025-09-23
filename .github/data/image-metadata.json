@@ -797,5 +797,12 @@
     "timestamp": "2025-09-23T12:32:18.965Z",
     "status": "failed",
     "error": "CDN upload failed: 500 - {\"error\":\"Internal server error\"}"
+  },
+  "0d4bcac834e9a600d06cd90e4569b7c8": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/sAY0LRNIvFM-FLctK8jfcg/Wg1kQGZ2kVj5iV78r6sghe0eda0nxC9ctR7M5UxP6PoXP4CnaZnzZMvD_E1arpxqbkKqA07_JBr38Ri1r14KFlOS4cBFDkmMCITO9czhzNkCfYU5uRzJslpiQwjOE0Cws8bkPRbmTOUBhUAWCeM1QQ/F2jprWmnqyt3RoZqlNvrNWOHXQaPP6cnaw_bnkPftTg",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/sAY0LRNIvFM-FLctK8jfcg/Wg1kQGZ2kVj5iV78r6sghe0eda0nxC9ctR7M5UxP6PoXP4CnaZnzZMvD_E1arpxqbkKqA07_JBr38Ri1r14KFlOS4cBFDkmMCITO9czhzNkCfYU5uRzJslpiQwjOE0Cws8bkPRbmTOUBhUAWCeM1QQ/F2jprWmnqyt3RoZqlNvrNWOHXQaPP6cnaw_bnkPftTg",
+    "timestamp": "2025-09-23T13:05:50.854Z",
+    "status": "failed",
+    "error": "CDN upload failed: 500 - {\"error\":\"Internal server error\"}"
   }
 }
