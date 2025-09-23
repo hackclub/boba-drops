@@ -577,5 +577,12 @@
     "cdnUrl": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/85e917ddfe294ec31c1f136e49699d00f12183bc_HEZvYlZQSgq3NJBpBETPVhl92X7MDUg4iwrFHOKuqE8",
     "timestamp": "2025-09-23T05:11:05.326Z",
     "status": "optimized"
+  },
+  "db91774c1b64d782f1f3df48550479cc": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/DAgQcFe5gAFlGh_EnJmYlQ/9AqkqEGl6zM6lWygRfBZe9tski3gWjht9wqIk-RgJsmXjoxvxVTGJrPKOHLOwYd8ZEwqy1gHnjdof8e8QOHyhOqDexG6_M5LDYbWOuoU3g6wiPKim2Av37EEY7d3gxc_hfPeHBiZ53POkNc-y2mCkw/GZMV4NV875cV4csftJnSac2rwyRu_Nswt_X3j_lkXM4",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/DAgQcFe5gAFlGh_EnJmYlQ/9AqkqEGl6zM6lWygRfBZe9tski3gWjht9wqIk-RgJsmXjoxvxVTGJrPKOHLOwYd8ZEwqy1gHnjdof8e8QOHyhOqDexG6_M5LDYbWOuoU3g6wiPKim2Av37EEY7d3gxc_hfPeHBiZ53POkNc-y2mCkw/GZMV4NV875cV4csftJnSac2rwyRu_Nswt_X3j_lkXM4",
+    "timestamp": "2025-09-23T05:31:08.204Z",
+    "status": "failed",
+    "error": "CDN upload timed out"
   }
 }
