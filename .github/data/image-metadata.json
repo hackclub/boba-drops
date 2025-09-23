@@ -621,5 +621,11 @@
     "cdnUrl": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9169ffe6f788979b96b52e52dca3b68eec0e63df_AWTYy8bFvouyZpWg2pk5a0U9KQlfuumm0WnTUTu3GH4",
     "timestamp": "2025-09-23T06:56:07.049Z",
     "status": "optimized"
+  },
+  "6fe024f60fa0052d7927eee5c0b1f490": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/WWvz8HZntbrY3AxagUC1rg/VT1T4D_f3QFD6f7f-hbHu5gwLpcJQcB_CLFTeR66AkjZB6yiMNKCn-nwGzJjE7XT3HybCm6DtqrbNUB3ekeaxvkkxkf_NKFH9MIoPVhivatFCb7cwA5zBVpRbOU-r26p-a5BV4IcwmpfUhN18VOfrQ/fPrQUqI2NhyowtFlLqwDlm-gxKzLXK3dCwNRu6EAes0",
+    "cdnUrl": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b2674a22c9b62c050d779c4a6e22cedd431b830b_fPrQUqI2NhyowtFlLqwDlm-gxKzLXK3dCwNRu6EAes0",
+    "timestamp": "2025-09-23T07:13:00.337Z",
+    "status": "optimized"
   }
 }
