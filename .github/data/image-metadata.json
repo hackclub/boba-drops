@@ -1298,5 +1298,12 @@
     "cdnUrl": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9f8e688724e51f7c2eb2edb95d87892f83584e37_2aDR4II0yl_kNOaIJ5_Q-mCbpFWGSpFmqZx2ZiQWWHQ",
     "timestamp": "2025-09-24T06:23:29.384Z",
     "status": "optimized"
+  },
+  "a8f8b81f5c3183897c5fe32643643dd1": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758700800000/1Z7-fdGplNuuVOhbO1WVgA/07IN-oloTn0W5qerTzErlkzyDr4LAPX1BikHPxEba4OMrHjxiV8rF37EpsT6_UhwwcXFkw5P_xI3DBa61pMv5HSsn1JhT3-zzNYFLLdPOlsYOU_YTPB8ACqm-fPgmGh2Ee6Ce5mHJHsfwqszP1ZxRg/9CPuyIki8lo4nKyjMDa5Vw_QCt2wa8gkbrraD1IU_w4",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758700800000/1Z7-fdGplNuuVOhbO1WVgA/07IN-oloTn0W5qerTzErlkzyDr4LAPX1BikHPxEba4OMrHjxiV8rF37EpsT6_UhwwcXFkw5P_xI3DBa61pMv5HSsn1JhT3-zzNYFLLdPOlsYOU_YTPB8ACqm-fPgmGh2Ee6Ce5mHJHsfwqszP1ZxRg/9CPuyIki8lo4nKyjMDa5Vw_QCt2wa8gkbrraD1IU_w4",
+    "timestamp": "2025-09-24T06:46:03.605Z",
+    "status": "failed",
+    "error": "CDN upload timed out"
   }
 }
