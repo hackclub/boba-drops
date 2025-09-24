@@ -1723,5 +1723,12 @@
     "timestamp": "2025-09-24T20:13:15.299Z",
     "status": "failed",
     "error": "fetch failed"
+  },
+  "fabc0825a6e70556e4e4ae7d2f1e632a": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758700800000/HkUGGVjKDh9VcT2C_tj2nw/sh0AztdnDtORZFAJcQu1zsCT74IBne9Ov1MDU_fjC5DLsrJFSOwscdHjZLraLHABTwcaK1Xx-03IdiWtIZFHbpmCDGUohE2FMy9H_pgWsudfxdWYQ4kTfJLEj0KDlo-Yn2quB-g84L4CXogv4KFArg/-V-Uoz5pVZCkR8aoiKw19Jpc2boIp7pbJmmLbacjIC8",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758700800000/HkUGGVjKDh9VcT2C_tj2nw/sh0AztdnDtORZFAJcQu1zsCT74IBne9Ov1MDU_fjC5DLsrJFSOwscdHjZLraLHABTwcaK1Xx-03IdiWtIZFHbpmCDGUohE2FMy9H_pgWsudfxdWYQ4kTfJLEj0KDlo-Yn2quB-g84L4CXogv4KFArg/-V-Uoz5pVZCkR8aoiKw19Jpc2boIp7pbJmmLbacjIC8",
+    "timestamp": "2025-09-24T20:31:52.507Z",
+    "status": "failed",
+    "error": "CDN upload failed: 500 - {\"error\":\"Internal server error\"}"
   }
 }
