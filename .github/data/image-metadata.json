@@ -1217,5 +1217,12 @@
     "timestamp": "2025-09-24T03:50:57.302Z",
     "status": "failed",
     "error": "fetch failed"
+  },
+  "c49a70ea688e181224df7d7b0f6595a9": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/BE6oRe8lC94LV-YvwkMJXA/6QZv73ZXR42mwPqn1aPM-eGrntbcXEfBOBX8HljAdq9DUUWcakPh-kFiyXgmNQ7FXJCeCk1D2swv40W64OqnXVLQhbTQC57IjtjRqrxlsPsBG26dDplSb64tB8fJTPVLhPk5zPhj6sWSYDzE5_6usQ/kZJ-lIvFSE0QuXHx0kdRgB3hItVwAvk6rN_S4MxGnY8",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758614400000/BE6oRe8lC94LV-YvwkMJXA/6QZv73ZXR42mwPqn1aPM-eGrntbcXEfBOBX8HljAdq9DUUWcakPh-kFiyXgmNQ7FXJCeCk1D2swv40W64OqnXVLQhbTQC57IjtjRqrxlsPsBG26dDplSb64tB8fJTPVLhPk5zPhj6sWSYDzE5_6usQ/kZJ-lIvFSE0QuXHx0kdRgB3hItVwAvk6rN_S4MxGnY8",
+    "timestamp": "2025-09-24T03:57:37.224Z",
+    "status": "failed",
+    "error": "fetch failed"
   }
 }
