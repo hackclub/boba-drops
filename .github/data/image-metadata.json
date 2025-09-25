@@ -2136,5 +2136,12 @@
     "timestamp": "2025-09-25T11:17:43.386Z",
     "status": "failed",
     "error": "CDN upload failed: 500 - {\"error\":\"Internal server error\"}"
+  },
+  "ae2bbf9b5468907299dc2fa9014ea837": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758787200000/IDaMIWPGFynM2yBkhfo5ig/tHzzsjf99HzxHlga_0bionzknsht2pUkDEglwoDuHUiOdLY9Wlv2jUCFW3fyVwkSNn7ZyVgDhFG6-wXJswyIpolu5Ini4DQ63UAA9sxZJVXsIfk_btxG1gRmdbVGppWVeKAWrITSk2zbT5B5ThdNmA/G2p5YncTm4-6sG32T_6e3hKCEtPwXgwmOs8ZNCBj_Os",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758787200000/IDaMIWPGFynM2yBkhfo5ig/tHzzsjf99HzxHlga_0bionzknsht2pUkDEglwoDuHUiOdLY9Wlv2jUCFW3fyVwkSNn7ZyVgDhFG6-wXJswyIpolu5Ini4DQ63UAA9sxZJVXsIfk_btxG1gRmdbVGppWVeKAWrITSk2zbT5B5ThdNmA/G2p5YncTm4-6sG32T_6e3hKCEtPwXgwmOs8ZNCBj_Os",
+    "timestamp": "2025-09-25T11:28:50.300Z",
+    "status": "failed",
+    "error": "fetch failed"
   }
 }
