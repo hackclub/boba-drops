@@ -2971,5 +2971,12 @@
     "timestamp": "2025-09-26T15:56:57.719Z",
     "status": "failed",
     "error": "fetch failed"
+  },
+  "cd5b89144d16645509af6c2d74d2c421": {
+    "originalUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758873600000/mC0VLsCFPJDDLFjgbcu95A/Yj1qKNPc__BP8BXDFFqkiUq_tRg17L_k0N-RzttezD5VxeAz2LnjGjzBRC6DHLkc_lOBbcaXXyHP73saWm2iMtIoXILyvye6bTnqzS02RbEce4Ue7tLGO7b3kmTjZiPrz7boyZEalu1qndipP7ngOA/ddqe0PBUneUT1XG85Sojffk_CmWQUgb81jiczaoJmZM",
+    "cdnUrl": "https://v5.airtableusercontent.com/v3/u/45/45/1758873600000/mC0VLsCFPJDDLFjgbcu95A/Yj1qKNPc__BP8BXDFFqkiUq_tRg17L_k0N-RzttezD5VxeAz2LnjGjzBRC6DHLkc_lOBbcaXXyHP73saWm2iMtIoXILyvye6bTnqzS02RbEce4Ue7tLGO7b3kmTjZiPrz7boyZEalu1qndipP7ngOA/ddqe0PBUneUT1XG85Sojffk_CmWQUgb81jiczaoJmZM",
+    "timestamp": "2025-09-26T16:17:28.008Z",
+    "status": "failed",
+    "error": "CDN upload failed: 500 - {\"error\":\"Internal server error\"}"
   }
 }
