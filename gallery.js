@@ -10,7 +10,7 @@ const itemsPerLoad = 12;
 let currentIndex = 0;
 let isLoading = false;
 
-document.getElementById("event-input").value = eventCode
+document.getElementById("event-input").value = eventCode;
 
 if (["All", "Approved", "Pending", "Rejected"].includes(statusQuery)) {
   submissionStatus = statusQuery;
@@ -37,10 +37,7 @@ async function fetchData() {
 
   filterFormula += ")";
 
-  params.append(
-    "select",
-    JSON.stringify({ filterByFormula: filterFormula })
-  );
+  params.append("select", JSON.stringify({ filterByFormula: filterFormula }));
   params.append("cache", true);
 
   try {
@@ -68,10 +65,10 @@ function loadMoreSubmissions() {
   isLoading = true;
   const endIndex = Math.min(currentIndex + itemsPerLoad, allSubmissions.length);
   const newSubmissions = allSubmissions.slice(currentIndex, endIndex);
-  
+
   displayedSubmissions.push(...newSubmissions);
   currentIndex = endIndex;
-  
+
   renderSubmissions();
   isLoading = false;
 }
@@ -89,7 +86,8 @@ function renderSubmissions() {
       !submission.fields.Screenshot ||
       submission.fields.Screenshot.length === 0
     ) {
-      photoUrl = "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee0109f20430335ebb5cd3297a973ce244ed01cf_depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
+      photoUrl =
+        "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee0109f20430335ebb5cd3297a973ce244ed01cf_depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
     } else {
       photoUrl = submission.fields.Screenshot[0].url;
     }
@@ -102,10 +100,10 @@ function renderSubmissions() {
         <div class="links">
           <a href="${
             submission.fields["Code URL"]
-          }" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
+          }" target="_blank" class="github-button"><i class="fa-brands fa-github"></i> Github</a>
           <a href="${
             submission.fields["Playable URL"]
-          }" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
+          }" target="_blank" class="demo-button"><i class="fa-solid fa-link"></i> Demo</a>
         </div>
       </div>
     `;
@@ -133,7 +131,7 @@ function handleScroll() {
   }
 }
 
-window.addEventListener('scroll', handleScroll);
+window.addEventListener("scroll", handleScroll);
 
 const form = document.getElementById("event-code-search");
 form.addEventListener("submit", (e) => {
