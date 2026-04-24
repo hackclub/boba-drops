@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boba — 404</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+            
+    <main>
+        <button class="dark-mode-button" id="dark-mode-toggle">Dark</button>
+        <nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="requirements.html">Requirements</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+      <div class="error">
+        <h1>
+          <img
+            id="bobaText"
+            src="images/logo.svg"
+            alt="Boba! Text Logo"
+            width="480"
+            height="auto"
+          />
+        </h1>
+      </div>
+      <div class="error">
+        <h1>
+          Uh Oh.. This isn't the boba shop!<br />
+        </h1>
+        <h1>
+          404 Page Not Found<br />
+        </h1>
+      </div>
+      <script src="gallery.js"></script>
+  <script>
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const body = document.body;
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") {
+      body.classList.add("dark-mode");
+      darkModeToggle.textContent = "Light";
+    }
+    darkModeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      darkModeToggle.textContent = theme === "dark" ? "Light" : "Dark";
+    });
+  </script>
+    </main>
+  </body>
+</html>

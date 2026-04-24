@@ -5,6 +5,18 @@ body {
     background: #C76B0F;
     font-size: 1.5em;
 }
+body.dark-mode {
+  background: #1a1a1a;
+  color: #ffffff6c;
+}
+body.dark-mode #header,
+body.dark-mode #header-gallery,
+body.dark-mode .container,
+body.dark-mode #footer {
+  background: #1a1a1a;
+  background-image: none;
+}
+
 #header {
     padding: 1em;
     background-color: #C76B0F;
@@ -38,6 +50,17 @@ body {
     position: absolute;
     top: 20px;
     right: 30px;
+}
+
+.dark-mode-button {
+    color: #dee0da;
+    position: absolute;
+    top: 10px;
+    right: 150px;
+    border-radius: 10px;
+    width: 80px;
+    height: 50px;
+    font-size: 20px;;
 }
 
 .status-list {
@@ -345,3 +368,36 @@ button {
     outline: none;
     box-shadow: 0 0 5px #F6D193;
 }
+
+.error {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.navbar {
+  background-color: #92491b;
+  overflow: hidden;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; 
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 20px 20px;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+

@@ -22,6 +22,7 @@
       alt="Dinosaur arm holding flag that reads 'Hack Club'">
   </a>
   <a class="top-button" href="gallery.html">Gallery</a>
+  <button class="dark-mode-button" id="dark-mode-toggle">Dark</button>
 
   <div id="header">
     <img src="images/logo.svg" alt="Boba Drops Logo" width="90%" height="auto">
@@ -109,6 +110,21 @@
       non-profit.</p>
   </div>
   <script src="banner.js"></script>
+  <script>
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const body = document.body;
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") {
+      body.classList.add("dark-mode");
+      darkModeToggle.textContent = "Light";
+    }
+    darkModeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      darkModeToggle.textContent = theme === "dark" ? "Light" : "Dark";
+    });
+  </script>
 </body>
 
 <script defer data-domain="hackclub.github.io/boba-drops" src="https://plausible.io/js/script.js"></script>
