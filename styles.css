@@ -318,7 +318,7 @@ body.has-event-bar .dark-mode-button {
 .banner {
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 0;
   }
 
   .banner img {
