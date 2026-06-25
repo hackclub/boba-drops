@@ -1,5 +1,18 @@
 const BASE_DOMAIN = "api2.hackclub.com";
 
+const STATUS_API_VALUES = {
+  Approved: "Approve",
+  Pending: "Pending",
+  Rejected: "Reject",
+};
+
+const STATUS_CSS_CLASSES = {
+  Approve: "approved",
+  Pending: "pending",
+  "Needs Changes": "pending",
+  Reject: "rejected",
+};
+
 let submissionStatus = "All";
 const urlParams = new URLSearchParams(window.location.search);
 const statusQuery = urlParams.get("status");
@@ -26,7 +39,7 @@ async function fetchData() {
   const params = new URLSearchParams();
   let filterFormula = "AND(";
   if (submissionStatus !== "All") {
-    filterFormula += `{Status} = '${submissionStatus}'`;
+    filterFormula += `{Project Status} = '${STATUS_API_VALUES[submissionStatus]}'`;
   }
   if (eventCode !== "") {
     if (submissionStatus !== "All") {
@@ -91,12 +104,13 @@ function renderSubmissions() {
     } else {
       photoUrl = submission.fields.Screenshot[0].url;
     }
+    const statusClass = STATUS_CSS_CLASSES[submission.fields["Project Status"]] || "pending";
     submissionsPush += `
       <div class="grid-submission">
         <div class="submission-photo"
           style="background-image: url(${photoUrl});">
         </div>
-        <span class="status ${submission.fields.Status.toLowerCase()}"></span>
+        <span class="status ${statusClass}"></span>
         <div class="links">
           <a href="${
             submission.fields["Code URL"]

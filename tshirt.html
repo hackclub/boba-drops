@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Boba Drops · Tee'd Up</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=450">
+
+  <link rel="icon" href="favicon.png">
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <a class="banner" href="https://hackclub.com/">
+    <img src="https://contribute.hackclub.com/images/flag-orpheus-top.png"
+      alt="Dinosaur arm holding flag that reads 'Hack Club'">
+  </a>
+  <a class="top-button" href="gallery.html">Gallery</a>
+  <button class="dark-mode-button" id="dark-mode-toggle">Dark</button>
+
+  <div id="tshirt-page">
+    <div class="tshirt-main">
+      <div class="tee-hero">
+        <div class="tee-hero-copy">
+          <img class="tee-logo" src="images/logo.svg" alt="Boba Drops Logo">
+          <div id="subtitle"><span>Tee'd Up</span></div>
+          <p class="tee-tagline">
+            Build a site, score a tee. Make a one-page site about your favorite Hack Club event and we'll mail you a Boba Drops tee.
+          </p>
+
+          <div class="tee-countdown" id="countdown" aria-label="Time left to submit">
+            <div class="cd-cell"><span class="cd-num" id="cd-days">0</span><span class="cd-lbl">days</span></div>
+            <div class="cd-cell"><span class="cd-num" id="cd-hours">0</span><span class="cd-lbl">hrs</span></div>
+            <div class="cd-cell"><span class="cd-num" id="cd-mins">0</span><span class="cd-lbl">min</span></div>
+            <div class="cd-cell"><span class="cd-num" id="cd-secs">0</span><span class="cd-lbl">sec</span></div>
+          </div>
+          <div class="deadline" id="deadline-line">One week only</div>
+        </div>
+      </div>
+
+      <div class="tee-steps">
+        <div class="item-step hoverable"
+          style="background-image: url(images/boba_card1.png)!important; background-size: cover;">
+          <div class="boba-number">1</div>
+          <p class="item-text">Build a one-page site about a HC event</p>
+        </div>
+        <div class="item-step hoverable"
+          style="background-image: url(images/boba_card2.png)!important; background-size: cover;">
+          <div class="boba-number">2</div>
+          <p class="item-text">Submit it with HTML &amp; CSS on GitHub Pages</p>
+        </div>
+        <div class="item-step hoverable"
+          style="background-image: url(images/boba_card4.png)!important; background-size: cover; background-position: bottom;">
+          <div class="boba-number">3</div>
+          <p class="item-text">Get your Boba Drops T-shirt 👕</p>
+        </div>
+      </div>
+
+      <div class="tee-cta">
+        <a class="hoverable" id="form-link" href="TODO_TSHIRT_FORM_URL" target="_blank">Submit your site</a>
+        <a class="hoverable" id="form-link" href="requirements.html">Requirements</a>
+      </div>
+    </div>
+
+    <div id="footer">
+      <p style="display: flex; gap: 4px; justify-content: center;">Made with <img src="images/boba-parrot.gif" alt="boba"
+          title="A parrot with boba" height="20px" /> by <a href="https://hackclub.com">Hack Club</a>, a 501(c)(3)
+        non-profit.</p>
+    </div>
+  </div>
+
+  <script src="banner.js"></script>
+  <script>
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const body = document.body;
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") {
+      body.classList.add("dark-mode");
+      darkModeToggle.textContent = "Light";
+    }
+    darkModeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      darkModeToggle.textContent = theme === "dark" ? "Light" : "Dark";
+    });
+  </script>
+  <script>
+    const DEADLINE = new Date("2026-07-02T23:59:00");
+
+    const cd = {
+      days: document.getElementById("cd-days"),
+      hours: document.getElementById("cd-hours"),
+      mins: document.getElementById("cd-mins"),
+      secs: document.getElementById("cd-secs"),
+    };
+    const deadlineLine = document.getElementById("deadline-line");
+
+    function pad(n) { return String(n).padStart(2, "0"); }
+
+    function tick() {
+      const diff = DEADLINE - new Date();
+      if (diff <= 0) {
+        cd.days.textContent = cd.hours.textContent = cd.mins.textContent = cd.secs.textContent = "00";
+        deadlineLine.textContent = "Submissions closed";
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      cd.days.textContent = pad(Math.floor(s / 86400));
+      cd.hours.textContent = pad(Math.floor((s % 86400) / 3600));
+      cd.mins.textContent = pad(Math.floor((s % 3600) / 60));
+      cd.secs.textContent = pad(s % 60);
+      deadlineLine.textContent = "Closes " + DEADLINE.toLocaleDateString(undefined, { month: "long", day: "numeric" });
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+
+</html>

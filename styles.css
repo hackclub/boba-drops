@@ -401,3 +401,155 @@ button {
   color: black;
 }
 
+#tshirt-page {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, #C76B0F, #A25404);
+}
+
+#tshirt-page .tshirt-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4em;
+  padding: 1.5em 1em;
+  min-height: 0;
+}
+
+.tee-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 48rem;
+}
+
+.tee-hero-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.7em;
+}
+
+.tee-hero-copy #subtitle {
+  font-size: 1.1em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+#tshirt-page img.tee-logo {
+  max-width: 22rem;
+  width: 100%;
+  height: auto;
+}
+
+#tshirt-page .tee-tagline {
+  margin: 0;
+  max-width: 30em;
+  font-size: 0.95em;
+}
+
+.tee-countdown {
+  display: flex;
+  gap: 0.6em;
+  margin-top: 0.3em;
+}
+
+.cd-cell {
+  background-color: #603101;
+  border-radius: 0.6em;
+  padding: 0.5em 0.7em;
+  min-width: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: #4c2a0d 0 3px 0;
+}
+
+.cd-num {
+  font-size: 1.8em;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-lbl {
+  font-size: 0.6em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-top: 0.3em;
+}
+
+.tee-steps {
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  gap: 1em;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+#tshirt-page .boba-number {
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: 800;
+  color: #F6D193;
+  text-shadow: #603101 1px 1px 4px;
+}
+
+.tee-cta {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tee-cta #form-link {
+  margin-top: 0;
+}
+
+.deadline {
+  display: inline-block;
+  background-color: #603101;
+  color: #F6D193;
+  padding: 0.4em 1em;
+  border-radius: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+  box-shadow: #603101 1px 1px 10px;
+}
+
+body.dark-mode #tshirt-page {
+  background-image: none;
+  background: #1a1a1a;
+}
+
+@media (max-width: 52rem) {
+  #tshirt-page {
+    height: auto;
+    overflow: visible;
+  }
+  .tee-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
