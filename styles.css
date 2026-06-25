@@ -491,29 +491,85 @@ button {
   margin-top: 0.3em;
 }
 
-.tee-steps {
-  grid-template-columns: 1fr 1fr 1fr;
-  display: grid;
-  gap: 1.2em;
-  width: 100%;
-  max-width: 60rem;
-  margin: 0 auto;
+.cd-live {
+  background-color: #603101;
+  color: #F6D193;
+  font-size: 1.6em;
+  font-weight: 800;
+  padding: 0.4em 0.9em;
+  border-radius: 0.6em;
+  box-shadow: #4c2a0d 0 3px 0;
 }
 
-#tshirt-page .boba-number {
-  width: 2em;
-  height: 2em;
-  padding: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.tee-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+.tee-track .track-line {
+  position: absolute;
+  top: 1.1em;
+  left: 3em;
+  right: 3em;
+  height: 4px;
+  background: #603101;
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.track-stop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  flex: 0 0 auto;
+}
+
+.track-dot {
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
+  background: #603101;
+  color: #F6D193;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9em;
   font-weight: 800;
-  color: #F6D193;
-  text-shadow: #603101 1px 1px 4px;
+  font-size: 0.95em;
+  border: 3px solid #A25404;
+}
+
+.track-stop.is-reward .track-dot {
+  background: #F6D193;
+  color: #603101;
+  border-color: #F6D193;
+  box-shadow: 0 0 10px rgba(246, 209, 147, 0.6);
+}
+
+.track-stop.is-final .track-dot {
+  transform: scale(1.15);
+}
+
+.track-label {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.8em;
+  line-height: 1.2;
+}
+
+.track-label span {
+  font-weight: 400;
+  opacity: 0.85;
+  font-size: 0.9em;
 }
 
 .tee-cta {
@@ -544,12 +600,9 @@ body.dark-mode #tshirt-page {
 }
 
 @media (max-width: 52rem) {
-  #tshirt-page {
-    height: auto;
-    overflow: visible;
-  }
-  .tee-steps {
-    grid-template-columns: 1fr;
+  .tee-track {
+    max-width: 26rem;
+    padding: 0 0.5em;
   }
 }
 

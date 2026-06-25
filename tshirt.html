@@ -31,34 +31,32 @@
           <img class="tee-logo" src="images/logo.svg" alt="Boba Drops Logo">
           <div id="subtitle"><span>Tee'd Up</span></div>
           <p class="tee-tagline">
-            Build a site, score a tee. Make a one-page site about your favorite Hack Club event and we'll mail you a Boba Drops tee.
+            Build one website every day for 7 days. Hit day 4 for stickers, finish all 7 and we'll mail you a Boba Drops T-shirt plus more fun swag.
           </p>
 
-          <div class="tee-countdown" id="countdown" aria-label="Time left to submit">
+          <div class="tee-countdown" id="countdown" aria-label="Time until the challenge starts">
             <div class="cd-cell"><span class="cd-num" id="cd-days">0</span><span class="cd-lbl">days</span></div>
             <div class="cd-cell"><span class="cd-num" id="cd-hours">0</span><span class="cd-lbl">hrs</span></div>
             <div class="cd-cell"><span class="cd-num" id="cd-mins">0</span><span class="cd-lbl">min</span></div>
             <div class="cd-cell"><span class="cd-num" id="cd-secs">0</span><span class="cd-lbl">sec</span></div>
           </div>
-          <div class="deadline" id="deadline-line">One week only</div>
+          <div class="deadline" id="deadline-line">Starts Monday, June 29</div>
         </div>
       </div>
 
-      <div class="tee-steps">
-        <div class="item-step hoverable"
-          style="background-image: url(images/boba_card1.png)!important; background-size: cover;">
-          <div class="boba-number">1</div>
-          <p class="item-text">Build a one-page site about a HC event</p>
+      <div class="tee-track" aria-label="Reward milestones">
+        <div class="track-line"></div>
+        <div class="track-stop">
+          <div class="track-dot">1</div>
+          <p class="track-label">Day 1<br><span>Start building</span></p>
         </div>
-        <div class="item-step hoverable"
-          style="background-image: url(images/boba_card2.png)!important; background-size: cover;">
-          <div class="boba-number">2</div>
-          <p class="item-text">Submit it with HTML &amp; CSS on GitHub Pages</p>
+        <div class="track-stop is-reward">
+          <div class="track-dot">4</div>
+          <p class="track-label">Day 4 🎉<br><span>Stickers!</span></p>
         </div>
-        <div class="item-step hoverable"
-          style="background-image: url(images/boba_card4.png)!important; background-size: cover; background-position: bottom;">
-          <div class="boba-number">3</div>
-          <p class="item-text">Get your Boba Drops T-shirt 👕</p>
+        <div class="track-stop is-reward is-final">
+          <div class="track-dot">7</div>
+          <p class="track-label">Day 7 🏆<br><span>T-shirt + swag</span></p>
         </div>
       </div>
 
@@ -92,7 +90,9 @@
     });
   </script>
   <script>
-    const DEADLINE = new Date("2026-07-02T23:59:00");
+    const START = new Date("2026-06-29T00:00:00");
+    const END = new Date("2026-07-06T00:00:00");
+    const DAY_MS = 86400000;
 
     const cd = {
       days: document.getElementById("cd-days"),
@@ -100,23 +100,34 @@
       mins: document.getElementById("cd-mins"),
       secs: document.getElementById("cd-secs"),
     };
+    const countdown = document.getElementById("countdown");
     const deadlineLine = document.getElementById("deadline-line");
 
     function pad(n) { return String(n).padStart(2, "0"); }
 
-    function tick() {
-      const diff = DEADLINE - new Date();
-      if (diff <= 0) {
-        cd.days.textContent = cd.hours.textContent = cd.mins.textContent = cd.secs.textContent = "00";
-        deadlineLine.textContent = "Submissions closed";
-        return;
-      }
+    function showClock(diff) {
       const s = Math.floor(diff / 1000);
       cd.days.textContent = pad(Math.floor(s / 86400));
       cd.hours.textContent = pad(Math.floor((s % 86400) / 3600));
       cd.mins.textContent = pad(Math.floor((s % 3600) / 60));
       cd.secs.textContent = pad(s % 60);
-      deadlineLine.textContent = "Closes " + DEADLINE.toLocaleDateString(undefined, { month: "long", day: "numeric" });
+    }
+
+    function tick() {
+      const now = new Date();
+      if (now < START) {
+        showClock(START - now);
+        deadlineLine.textContent = "Starts Monday, June 29";
+      } else if (now < END) {
+        countdown.classList.add("is-live");
+        const day = Math.min(7, Math.floor((now - START) / DAY_MS) + 1);
+        countdown.innerHTML = '<div class="cd-live">Day ' + day + ' of 7</div>';
+        deadlineLine.textContent = "Challenge is live, ship today's site!";
+      } else {
+        countdown.classList.add("is-live");
+        countdown.innerHTML = '<div class="cd-live">That’s a wrap! 🧋</div>';
+        deadlineLine.textContent = "Challenge complete";
+      }
     }
     tick();
     setInterval(tick, 1000);
