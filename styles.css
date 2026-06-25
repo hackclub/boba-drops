@@ -97,6 +97,51 @@ a {
     box-shadow: #603101 1px 1px 10px;
 }
 
+.tee-event-button {
+    margin-top: 2em;
+    padding: 0.55em 1.1em;
+    background: #F6D193;
+    color: #603101 !important;
+    font-weight: 800;
+    border-radius: 0.6em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    box-shadow: 0 0 0 0 rgba(246, 209, 147, 0.6);
+    animation: tee-event-pulse 2.2s ease-out infinite;
+}
+
+.tee-event-button:hover {
+    animation: none;
+    box-shadow: 0 4px 14px rgba(246, 209, 147, 0.7);
+}
+
+.tee-event-arrow {
+    transition: transform 0.3s;
+}
+
+.tee-event-button:hover .tee-event-arrow {
+    transform: translateX(4px);
+}
+
+@keyframes tee-event-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(246, 209, 147, 0.55); }
+    70% { box-shadow: 0 0 0 12px rgba(246, 209, 147, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(246, 209, 147, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tee-event-button {
+        animation: none;
+    }
+}
+
+body.dark-mode .tee-event-button {
+    background: #C76B0F;
+    color: #1a1a1a !important;
+}
+
 .hoverable {
     transition: 0.3s;
 }
