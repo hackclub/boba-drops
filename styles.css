@@ -322,7 +322,8 @@ body.has-event-bar .dark-mode-button {
   }
   
   .banner img {
-    height: 80px;
+    width: 256px;
+    height: auto;
   }
   
   .banner:hover img {
