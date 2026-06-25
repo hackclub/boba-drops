@@ -403,12 +403,11 @@ button {
 
 #tshirt-page {
   min-height: 100vh;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
   background-image: linear-gradient(to bottom right, #C76B0F, #A25404);
+  font-size: clamp(15px, 1.4vh + 0.4vw + 6px, 24px);
 }
 
 #tshirt-page .tshirt-main {
@@ -417,9 +416,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.4em;
-  padding: 1.5em 1em;
-  min-height: 0;
+  gap: clamp(0.8em, 2vh, 1.6em);
+  padding: clamp(1.5em, 4vh, 2.5em) 1em;
 }
 
 .tee-hero {
@@ -427,7 +425,7 @@ button {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 48rem;
+  max-width: 60rem;
 }
 
 .tee-hero-copy {
@@ -448,15 +446,17 @@ button {
 }
 
 #tshirt-page img.tee-logo {
-  max-width: 22rem;
+  max-width: 26rem;
   width: 100%;
+  max-height: 22vh;
   height: auto;
+  object-fit: contain;
 }
 
 #tshirt-page .tee-tagline {
   margin: 0;
-  max-width: 30em;
-  font-size: 0.95em;
+  max-width: 34em;
+  font-size: 1em;
 }
 
 .tee-countdown {
@@ -494,9 +494,9 @@ button {
 .tee-steps {
   grid-template-columns: 1fr 1fr 1fr;
   display: grid;
-  gap: 1em;
+  gap: 1.2em;
   width: 100%;
-  max-width: 50rem;
+  max-width: 60rem;
   margin: 0 auto;
 }
 
