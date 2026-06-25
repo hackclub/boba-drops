@@ -97,49 +97,64 @@ a {
     box-shadow: #603101 1px 1px 10px;
 }
 
-.tee-event-button {
-    margin-top: 2em;
-    padding: 0.55em 1.1em;
-    background: #F6D193;
-    color: #603101 !important;
-    font-weight: 800;
-    border-radius: 0.6em;
-    text-decoration: none;
-    display: inline-flex;
+.tee-event-bar {
+    display: flex;
     align-items: center;
-    gap: 0.4em;
-    box-shadow: 0 0 0 0 rgba(246, 209, 147, 0.6);
-    animation: tee-event-pulse 2.2s ease-out infinite;
+    justify-content: center;
+    gap: 0.6em;
+    flex-wrap: wrap;
+    background: #F6D193;
+    color: #603101;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.7em 1em;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(76, 42, 13, 0.3);
+    position: relative;
+    z-index: 1001;
 }
 
-.tee-event-button:hover {
-    animation: none;
-    box-shadow: 0 4px 14px rgba(246, 209, 147, 0.7);
+.tee-event-bar .tee-event-tag {
+    background: #603101;
+    color: #F6D193;
+    font-size: 0.75em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: 0.4em;
 }
 
-.tee-event-arrow {
+.tee-event-bar .tee-event-arrow {
+    font-weight: 800;
     transition: transform 0.3s;
 }
 
-.tee-event-button:hover .tee-event-arrow {
+.tee-event-bar:hover .tee-event-arrow {
     transform: translateX(4px);
 }
 
-@keyframes tee-event-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(246, 209, 147, 0.55); }
-    70% { box-shadow: 0 0 0 12px rgba(246, 209, 147, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(246, 209, 147, 0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .tee-event-button {
-        animation: none;
-    }
-}
-
-body.dark-mode .tee-event-button {
+body.dark-mode .tee-event-bar {
     background: #C76B0F;
-    color: #1a1a1a !important;
+    color: #1a1a1a;
+}
+
+body.dark-mode .tee-event-bar .tee-event-tag {
+    background: #1a1a1a;
+    color: #C76B0F;
+}
+
+body.has-event-bar .banner {
+    top: 55px;
+}
+
+body.has-event-bar .top-button {
+    top: 75px;
+}
+
+body.has-event-bar .dark-mode-button {
+    top: 65px;
 }
 
 .hoverable {
