@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Boba Drops · Website Ideas</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="favicon.png">
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <a class="banner" href="https://hackclub.com/">
+    <img src="https://assets.hackclub.com/banners/2026.svg" alt="Hack Club">
+  </a>
+  <a class="back-button" href="tshirt.html">← Tee'd Up</a>
+  <a class="top-button" href="gallery.html">Gallery</a>
+  <button class="dark-mode-button" id="dark-mode-toggle">Dark</button>
+
+  <div id="ideas-page">
+    <div class="ideas-main">
+      <div class="ideas-hero">
+        <div id="subtitle"><span>The Idea Machine</span></div>
+        <h1 class="ideas-headline">What should I build today?</h1>
+        <p class="ideas-tagline">
+          No clue what to make? Yank the lever and the machine spits out something to build.
+          Every idea is a single page you can make with just HTML &amp; CSS &mdash; steal it, twist it, make it weird.
+        </p>
+        <p class="ideas-subnote">Open to builders everywhere 🌍 &mdash; a new single-page site every day for 7 days.</p>
+      </div>
+
+      <div class="idea-card" id="idea-card">
+        <span class="idea-tag" id="idea-tag">tap below</span>
+        <div class="idea-emoji" id="idea-emoji">🧋</div>
+        <h2 class="idea-title" id="idea-title">Pull the lever &rarr;</h2>
+        <p class="idea-desc" id="idea-desc">The machine's loaded up. Give it a yank and see what falls out.</p>
+      </div>
+
+      <div class="ideas-cta">
+        <button class="hoverable idea-button" id="idea-button">🎰 Give it a yank</button>
+        <a class="hoverable" id="form-link" href="https://forms.hackclub.com/teedup" target="_blank">Built it? Submit &rarr;</a>
+      </div>
+
+      <p class="idea-count" id="idea-count"></p>
+    </div>
+
+    <div id="footer">
+      <p style="display: flex; gap: 4px; justify-content: center;">Made with <img src="images/boba-parrot.gif" alt="boba"
+          title="A parrot with boba" height="20px" /> by <a href="https://hackclub.com">Hack Club</a>, a 501(c)(3)
+        non-profit.</p>
+    </div>
+  </div>
+
+  <script src="banner.js"></script>
+  <script>
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const body = document.body;
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") {
+      body.classList.add("dark-mode");
+      darkModeToggle.textContent = "Light";
+    }
+    darkModeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      darkModeToggle.textContent = theme === "dark" ? "Light" : "Dark";
+    });
+  </script>
+  <script>
+    const IDEAS = [
+      { emoji: "👋", title: "About Me page", desc: "A personal intro site with your name, a photo, fun facts, and links to your socials." },
+      { emoji: "🍜", title: "Favorite recipe", desc: "Show off a recipe you love with an ingredients list, steps, and a tasty photo." },
+      { emoji: "🎵", title: "Top 10 songs", desc: "Rank your favorite tracks with album art and a one-line review for each." },
+      { emoji: "🎬", title: "Movie review blog", desc: "Write up films you've watched with star ratings and your hottest takes." },
+      { emoji: "🐶", title: "Pet fan page", desc: "A loving tribute to your pet (or dream pet) with photos and a bio." },
+      { emoji: "🌮", title: "Fake restaurant menu", desc: "Design a menu for an imaginary spot with sections, prices, and descriptions." },
+      { emoji: "🎮", title: "Favorite game tribute", desc: "A landing page for a game you love, with screenshots and why it rules." },
+      { emoji: "📚", title: "Reading list", desc: "Track books you've read or want to read with covers and mini reviews." },
+      { emoji: "🌍", title: "Dream travel map", desc: "List places you want to visit with photos and what you'd do there." },
+      { emoji: "💡", title: "Daily quote page", desc: "Display an inspiring quote with a clean, calming design." },
+      { emoji: "☕", title: "Boba tier list", desc: "Rank boba flavors (or any food!) from S-tier to F-tier with a grid layout." },
+      { emoji: "🎨", title: "Color palette showcase", desc: "Show off color combos you love with swatches and hex codes." },
+      { emoji: "🏆", title: "Bucket list", desc: "A checklist of goals and dreams, styled like a fun to-do list." },
+      { emoji: "🗂️", title: "Single-page portfolio", desc: "Showcase your projects, skills, and a way to contact you." },
+      { emoji: "🪐", title: "Planet facts page", desc: "Pick a planet and build a fact sheet with cool space imagery." },
+      { emoji: "🍕", title: "Pizza topping debate", desc: "Make the case for your favorite topping with bold, opinionated design." },
+      { emoji: "📸", title: "Photo gallery", desc: "A grid of your favorite photos with hover effects and captions." },
+      { emoji: "🎂", title: "Birthday countdown", desc: "Count down to your next birthday with a festive design." },
+      { emoji: "🐉", title: "Mythical creature wiki", desc: "An info page about a dragon, unicorn, or creature you invent." },
+      { emoji: "⚽", title: "Favorite team page", desc: "A fan site for your sports team with colors, players, and stats." },
+      { emoji: "🎸", title: "Band/artist tribute", desc: "Celebrate a musician with their discography and your favorite lyrics." },
+      { emoji: "🧪", title: "Cool science facts", desc: "Share mind-blowing facts with eye-catching cards." },
+      { emoji: "🗺️", title: "Hometown guide", desc: "Show off your town with must-see spots and hidden gems." },
+      { emoji: "🦸", title: "Superhero profile", desc: "Invent your own hero with powers, an origin story, and a costume." },
+      { emoji: "🌱", title: "Plant care guide", desc: "A guide to caring for a houseplant with watering tips and photos." },
+      { emoji: "🎯", title: "Goals for the year", desc: "Lay out your goals with progress bars and motivation." },
+      { emoji: "🍦", title: "Ice cream flavor lab", desc: "Invent wild ice cream flavors and present them like a real shop." },
+      { emoji: "🚀", title: "Startup landing page", desc: "Pitch a fake (or real!) product with a hero, features, and a sign-up." },
+      { emoji: "🐱", title: "Internet meme museum", desc: "Curate your favorite memes with a gallery and short histories." },
+      { emoji: "🎃", title: "Holiday greeting card", desc: "A digital card for any holiday with festive styling and animation." },
+      { emoji: "🧦", title: "The case of the missing sock", desc: "A detective board investigating where your single socks keep disappearing to." },
+      { emoji: "⏰", title: "Petition to abolish 7am", desc: "A formal petition page demanding mornings start no earlier than noon." },
+      { emoji: "🪑", title: "Rank every chair in your house", desc: "A serious tier list of every seat ranked by comfort and dignity." },
+      { emoji: "🔋", title: "Eulogy for my dead battery", desc: "An overly dramatic tribute mourning your phone hitting 1 percent again." },
+      { emoji: "🧂", title: "Museum of cursed food combos", desc: "A gallery curating the most disgusting food pairings humans dare to eat." },
+      { emoji: "🚪", title: "Doors I have walked into", desc: "A hall of shame documenting every door, wall, and pole you've hit." },
+      { emoji: "👻", title: "Excuses to skip the party", desc: "A generator of increasingly absurd reasons you can't make it tonight." },
+      { emoji: "🥄", title: "Spoon vs fork: the debate", desc: "A heated argument page defending the superior utensil with charts and passion." },
+      { emoji: "🦝", title: "Adopt a feral raccoon", desc: "A fake adoption site matching you with your perfect trash-panda companion." },
+      { emoji: "📢", title: "My unpopular opinions, ranked", desc: "A bold manifesto listing takes that will absolutely get you in trouble." },
+      { emoji: "🗳️", title: "Sock puppet government", desc: "A page declaring your sock puppets as the new legitimate ruling council." },
+      { emoji: "🌧️", title: "Reasons it's okay to nap", desc: "A scientifically-questionable defense of napping for any weather or mood." },
+      { emoji: "🐌", title: "World's slowest race results", desc: "A live-looking leaderboard ranking the slowest creatures and your group chat." },
+      { emoji: "📞", title: "Voicemails I'll never return", desc: "A wall of dramatic reasons you are screening every single call forever." },
+      { emoji: "🍞", title: "Carb appreciation society", desc: "A devoted fan club page worshipping bread, noodles, and all glorious carbs." },
+      { emoji: "🪤", title: "How to outsmart a Roomba", desc: "A tactical guide for winning the eternal war against your robot vacuum." },
+      { emoji: "😴", title: "Dreams that made no sense", desc: "A journal recounting your weirdest dreams with confused commentary throughout." },
+      { emoji: "🧊", title: "Court for kitchen crimes", desc: "A tribunal sentencing roommates who leave one ice cube in the tray." },
+      { emoji: "🎺", title: "Sounds that should be illegal", desc: "A ranked indictment of chewing, alarms, and other noises that ruin lives." },
+      { emoji: "🛼", title: "Sport I invented yesterday", desc: "The official rulebook for a chaotic game only you understand." },
+      { emoji: "🧣", title: "My imaginary nemesis", desc: "A dramatic dossier on the made-up rival you've sworn revenge against." },
+      { emoji: "🪙", title: "Things worth exactly one dollar", desc: "A weirdly specific catalog ranking what a single dollar can truly buy." },
+      { emoji: "🧠", title: "Shower thoughts archive", desc: "A growing collection of the profound nonsense your brain serves at 8am." },
+      { emoji: "🦷", title: "Tooth fairy complaint form", desc: "A formal grievance page demanding fair market rates for your lost teeth." },
+      { emoji: "🌀", title: "Conspiracy: pigeons run the mall", desc: "A red-string corkboard connecting pigeons to the food court takeover." },
+      { emoji: "🥬", title: "Vegetables ranked by betrayal", desc: "A vengeful tier list of veggies sorted by how badly they let you down." },
+      { emoji: "📦", title: "Things in my junk drawer", desc: "A reverent museum tour of the mystery objects in that one drawer." },
+      { emoji: "🚌", title: "People I saw on the bus", desc: "A field-guide cataloging strangers and the lives you invented for them." },
+      { emoji: "🧶", title: "Apology letter to my hobbies", desc: "A heartfelt note to the unfinished projects you swore you'd return to." },
+      { emoji: "🪦", title: "Graveyard of bad ideas", desc: "A solemn cemetery honoring every plan that absolutely should not have happened." },
+      { emoji: "🦄", title: "My fictional crush hall of fame", desc: "A shameless shrine to characters who will never know you exist." },
+      { emoji: "🧃", title: "Juice box power rankings", desc: "A fiercely defended leaderboard of childhood drinks from elite to tragic." },
+      { emoji: "🛌", title: "The art of doing nothing", desc: "An elegant manifesto celebrating productive procrastination as a lifestyle." },
+      { emoji: "🐙", title: "Animals that could beat me up", desc: "A nervous ranking of creatures you'd absolutely lose a fight against." },
+      { emoji: "📅", title: "Make Tuesday illegal", desc: "A petition arguing Tuesday is pointless and should be removed entirely." },
+      { emoji: "🧤", title: "My villain origin story", desc: "A dramatic timeline of the tiny inconveniences that pushed you over the edge." },
+      { emoji: "🍜", title: "Rating every texture of food", desc: "A bold sensory ranking from satisfyingly crunchy to deeply cursed slime." },
+      { emoji: "🛁", title: "Worst haircut shrine", desc: "A heartfelt memorial to the regrettable cut that haunts your old photos." },
+      { emoji: "🌵", title: "My houseplant's dating profile", desc: "A flirty fake profile getting your cactus back into the singles scene." },
+      { emoji: "📚", title: "Words I always misspell", desc: "A confessional wall of words that betray you in every single essay." },
+      { emoji: "🎈", title: "Emergency mood booster button", desc: "A page of dumb jokes and gifs for whenever today is being awful." },
+      { emoji: "🧹", title: "Chores ranked by dread", desc: "An honest tier list of household tasks from tolerable to soul-crushing." },
+      { emoji: "🐉", title: "Pet dragon care manual", desc: "A straight-faced guide to feeding, walking, and housebreaking your dragon." },
+      { emoji: "🕰️", title: "If I ruled for one day", desc: "A chaotic list of laws you'd pass during your brief glorious reign." },
+      { emoji: "🧁", title: "Snacks that hit at 2am", desc: "A reverent guide to the only foods that matter past midnight." },
+      { emoji: "🌋", title: "Pure-CSS lava lamp", desc: "Gooey blobs that rise, morph, and sink forever using only keyframes and blur." },
+      { emoji: "🏃", title: "The button that runs away", desc: "A button that dodges your cursor every time you try to click it." },
+      { emoji: "🎚️", title: "One light switch, whole page", desc: "A CSS-only switch that flips your entire site from day to pitch-black night." },
+      { emoji: "🧠", title: "Scroll through my brain", desc: "A parallax journey down past my snacks, fears, and intrusive thoughts." },
+      { emoji: "💻", title: "Fake desktop, real chaos", desc: "A pretend OS with draggable windows, a taskbar, and a fake error popup." },
+      { emoji: "⏳", title: "Loading screen to nowhere", desc: "A progress bar that gets to 99% and then politely refuses to finish." },
+      { emoji: "🫠", title: "Hover to read my thoughts", desc: "Hover over my face and a speech bubble leaks what I'm secretly thinking." },
+      { emoji: "🌈", title: "My mood as a gradient", desc: "A full-screen animated gradient that slowly shifts through how I feel today." },
+      { emoji: "🐱", title: "Pure-CSS cat that blinks", desc: "Draw a cat entirely in CSS shapes that blinks and flicks its tail." },
+      { emoji: "🔦", title: "Flashlight in the dark", desc: "A black page where your cursor reveals a glowing circle of hidden secrets." },
+      { emoji: "🎰", title: "Random compliment slot machine", desc: "Pull the lever and three reels spin to assemble a weirdly specific compliment." },
+      { emoji: "🪐", title: "CSS solar system orbit", desc: "Planets spinning around a sun at different speeds, no JavaScript needed." },
+      { emoji: "📼", title: "Glitchy VHS aesthetic page", desc: "Scanlines, color-bleed, and tracking errors over your retro-styled bio." },
+      { emoji: "🚪", title: "CSS-only 'pick a door'", desc: "Three doors using radio buttons reveal a prize, a goat, or pure disappointment." },
+      { emoji: "🌊", title: "A page that's underwater", desc: "Wavy text, floating bubbles, and a slow blue caustic-light wobble everywhere." },
+      { emoji: "🕹️", title: "Hover-to-grow pixel garden", desc: "Hover each tile and a tiny pixel flower blooms with a bounce." },
+      { emoji: "🚦", title: "Working CSS traffic light", desc: "A stoplight that cycles red, yellow, green on an endless timed loop." },
+      { emoji: "💤", title: "The world's laziest website", desc: "Everything loads in slow motion and a sleepy character yawns at you." },
+      { emoji: "🔮", title: "Magic 8-ball, but moody", desc: "Click the ball and it gives sarcastic, oddly personal predictions about your day." },
+      { emoji: "🍲", title: "Build-your-own ramen bowl", desc: "Checkboxes add noodles, egg, and chaos toppings to a bowl that updates live." },
+      { emoji: "👁️", title: "Eyes that follow your mouse", desc: "A pair of googly eyes whose pupils track your cursor across the screen." },
+      { emoji: "🎂", title: "Blow out the candles", desc: "Hover near the cake and the CSS flames flicker out one by one." },
+      { emoji: "📺", title: "Channel-surfing TV remote", desc: "Click remote buttons to flip between absurd fake TV channels and static." },
+      { emoji: "🧩", title: "Hover-to-reveal hidden message", desc: "Scattered tiles look random until you hover and a secret word assembles." },
+      { emoji: "🌃", title: "Day-to-night scroll sky", desc: "Scroll down and the sky fades from sunrise to stars and a glowing moon." },
+      { emoji: "💀", title: "The most cursed button", desc: "A big tempting button warning DO NOT CLICK that triggers escalating CSS chaos." },
+      { emoji: "🎨", title: "Hover to repaint the page", desc: "Hovering different swatches floods the whole site in a new color theme." },
+      { emoji: "🐟", title: "Aquarium of CSS fish", desc: "Little fish swim across the screen at random depths and speeds forever." },
+      { emoji: "🪩", title: "Click for a dance party", desc: "A checkbox flips the page into strobing disco colors and a spinning ball." },
+      { emoji: "📦", title: "Unbox a mystery gift", desc: "Hover the wrapped box and it shakes, then flips open to reveal something dumb." },
+      { emoji: "🌀", title: "Hypnotize-your-friends spiral", desc: "A pure-CSS spinning spiral with a 'do not look too long' disclaimer." },
+      { emoji: "🍞", title: "Toast that pops up forever", desc: "A toaster that launches CSS toast on a satisfying springy loop." },
+      { emoji: "🧪", title: "Mad scientist's bubbling potion", desc: "A flask with rising bubbles that changes color when you hover the cork." },
+      { emoji: "📱", title: "Fake texting conversation", desc: "A chat thread that reveals messages one by one with typing-dot animations." },
+      { emoji: "🎯", title: "Whack-the-cursor reflex test", desc: "Targets appear and shrink; hover fast before they vanish, no JS scoring needed." },
+      { emoji: "🌧️", title: "It's raining on your page", desc: "Animated raindrops fall and a window slowly fogs up at the edges." },
+      { emoji: "🚪", title: "Knock-knock door peephole", desc: "Hover the peephole to see who's outside, hover the handle to let chaos in." },
+      { emoji: "👨‍🚀", title: "Floating-in-zero-gravity bio", desc: "Your name and facts drift slowly around the screen like lost astronauts." },
+      { emoji: "🦖", title: "Tiny dino chasing your text", desc: "A pixel dino animates across the page trying to eat your wandering words." },
+      { emoji: "🎁", title: "Scratch-off surprise card", desc: "Hover to 'scratch' away a layer and reveal a hidden prize underneath." },
+      { emoji: "🌙", title: "Sleepy moon phase tracker", desc: "A moon that morphs through its phases on a slow, dreamy CSS loop." },
+      { emoji: "🫧", title: "Pop the floating bubbles", desc: "Bubbles drift upward and 'pop' with a satisfying scale when you hover them." },
+      { emoji: "📟", title: "Retro terminal that boots up", desc: "Green monospace text types itself out like an old computer waking up." },
+      { emoji: "🎭", title: "Flip my two-faced card", desc: "A card that flips on hover to show the chaotic opposite of its calm front." },
+      { emoji: "🔋", title: "Your social battery meter", desc: "An animated battery that slowly drains across the page until it's empty." },
+      { emoji: "💌", title: "Thank-you letter to your teacher", desc: "Write the full appreciation note you never said out loud to one specific teacher." },
+      { emoji: "🎒", title: "Museum of your backpack", desc: "Catalog every crumpled receipt and mystery object in your bag as priceless artifacts." },
+      { emoji: "📓", title: "Field guide to your group chat", desc: "Document each friend like a rare species with habitat, diet, and call sounds." },
+      { emoji: "⚔️", title: "Pokémon ranked by fight risk", desc: "Rank Pokémon purely by how badly each one could beat you in real life." },
+      { emoji: "⛏️", title: "The lore of my Minecraft world", desc: "Tell the full epic history of your survival world, its builds, and its disasters." },
+      { emoji: "🍫", title: "Eulogy for a dead snack", desc: "A heartfelt obituary for a discontinued snack you still mourn to this day." },
+      { emoji: "☄️", title: "Relatives ranked by apocalypse value", desc: "Rank your family by who you'd actually want on your zombie survival team." },
+      { emoji: "😂", title: "Our inside jokes, explained", desc: "Document every cursed friend-group inside joke with the origin story behind it." },
+      { emoji: "🎮", title: "Games I rage-quit and why", desc: "A confessional log of every game that personally wronged you and broke your spirit." },
+      { emoji: "🪴", title: "Diary of my one houseplant", desc: "Daily updates narrated from the perspective of your only barely-alive plant." },
+      { emoji: "🍜", title: "Ranking instant noodle flavors", desc: "An obsessively detailed tier list of every instant ramen you've ever eaten." },
+      { emoji: "🎲", title: "My D&D character's saddest backstory", desc: "Tell your tabletop character's tragic origin like a serious literary tribute." },
+      { emoji: "📼", title: "The cartoons that raised me", desc: "A nostalgic shrine to the childhood shows that secretly shaped your whole personality." },
+      { emoji: "🛏️", title: "Tour of my room's chaos", desc: "A guided museum tour of every weird object and pile in your bedroom." },
+      { emoji: "🧋", title: "My boba order, deeply explained", desc: "Justify your exact drink customization choices like a sworn legal testimony." },
+      { emoji: "🐈", title: "My pet's secret villain origin", desc: "Reveal the dramatic backstory explaining why your pet acts so unhinged." },
+      { emoji: "⌨️", title: "Shrine to my mechanical keyboard", desc: "Lovingly document every keycap, switch, and sound of your beloved keyboard build." },
+      { emoji: "📚", title: "Books I lied about reading", desc: "Confess every assigned book you faked, ranked by how guilty you feel." },
+      { emoji: "🎧", title: "The song for each of my friends", desc: "Assign every close friend one perfect song and defend each choice in detail." },
+      { emoji: "🥏", title: "My weirdly specific hobby explained", desc: "Convince strangers why your oddly niche hobby is secretly the best one." },
+      { emoji: "🦕", title: "Dinosaurs ranked as roommates", desc: "Rank dinosaurs by how chill they'd be to actually live with." },
+      { emoji: "📝", title: "Notes app confessions, curated", desc: "Publish the unhinged, poetic, or chaotic gems hiding in your Notes app." },
+      { emoji: "🏰", title: "Lore of my childhood blanket fort", desc: "Chronicle the rise and fall of the legendary fort you built as a kid." },
+      { emoji: "🍳", title: "Every meal I can actually cook", desc: "A proud honest menu of the three sad dishes you've truly mastered." },
+      { emoji: "🏝️", title: "My Animal Crossing island history", desc: "Narrate your island's villagers, drama, and questionable urban planning decisions." },
+      { emoji: "😢", title: "Things that make me cry, ranked", desc: "An honest tier list of movies, songs, and ads that destroy you." },
+      { emoji: "🩹", title: "Every scar and its story", desc: "Map each scar on your body to the dumb story that earned it." },
+      { emoji: "📺", title: "Defending my guilty-pleasure show", desc: "A passionate legal defense of the trash TV you refuse to apologize for." },
+      { emoji: "🎪", title: "My most useless talent, celebrated", desc: "Build a whole monument to the one pointless thing you're weirdly great at." },
+      { emoji: "🐠", title: "Eulogy for my first goldfish", desc: "A solemn memorial for the pet fish that taught you about loss." },
+      { emoji: "🎤", title: "Songs I belt in the shower", desc: "A concert setlist of the tracks you perform only when nobody's listening." },
+      { emoji: "✏️", title: "My handwriting through the years", desc: "Show how your handwriting evolved and what each era says about you." },
+      { emoji: "🗺️", title: "Map of my walk to school", desc: "Annotate every landmark, shortcut, and haunted spot on your daily route." },
+      { emoji: "🦸", title: "My friend group as a superhero team", desc: "Assign each friend a power, codename, and tragic flaw for the team roster." },
+      { emoji: "🧃", title: "Childhood foods I'd defend in court", desc: "Argue why the weird snacks you grew up eating were actually elite." },
+      { emoji: "⏳", title: "A letter to my future self", desc: "Write a sincere message for the you who'll read this in ten years." },
+      { emoji: "🐛", title: "Bugs I've befriended in my yard", desc: "Profile the local insects you've come to know like neighborhood regulars." },
+      { emoji: "🎴", title: "My trading card collection lore", desc: "Tell the story of your prized cards and the rivalries behind getting them." },
+      { emoji: "🛒", title: "Grocery store, ranked by vibes", desc: "Rate every aisle of your local store by pure emotional atmosphere." },
+      { emoji: "💾", title: "Games I'll never finish but love", desc: "Honor the unbeaten games you adore despite never reaching the end." },
+      { emoji: "🌙", title: "My oddly specific 3am thoughts", desc: "Archive the strange questions and worries that only visit you late at night." },
+      { emoji: "🧤", title: "Things my grandma always says", desc: "Collect your grandparent's recurring phrases into a loving little dictionary." },
+      { emoji: "🏆", title: "My most petty grudges, archived", desc: "A hall of fame for tiny grievances you refuse to ever let go." },
+      { emoji: "⚖️", title: "Cereal vs. soup: the trial", desc: "Build a dramatic court case page that finally settles whether cereal is soup." },
+      { emoji: "📰", title: "BREAKING: I stubbed my toe", desc: "A frantic 24-hour news site covering one tiny injury with live updates and pundits." },
+      { emoji: "🏆", title: "Nobel Prize for dishwashing", desc: "Write your heartfelt acceptance speech for the prestigious award of doing the dishes." },
+      { emoji: "💼", title: "Apply to be my friend", desc: "A fake job listing with requirements, salary, and benefits for becoming your bestie." },
+      { emoji: "📜", title: "Terms & conditions of friendship", desc: "A legal-looking agreement everyone must accept before they're allowed to hang out with you." },
+      { emoji: "🌿", title: "Houseplant Awards 2026", desc: "A glitzy awards-show page honoring your plants in categories like Most Dramatic Wilt." },
+      { emoji: "📺", title: "Infomercial for a useless gadget", desc: "Sell a product nobody needs with shouting captions, fake testimonials, and a 'BUT WAIT' offer." },
+      { emoji: "⭐", title: "Reviews of my own bedroom", desc: "Yelp-style customer reviews rating your room's ambiance, snacks, and questionable smells." },
+      { emoji: "🚨", title: "Wanted poster: the missing sock", desc: "A dramatic bounty page hunting the laundry criminal who steals one sock per load." },
+      { emoji: "🏛️", title: "Declaration of pizza independence", desc: "A founding-document parody declaring your kitchen a sovereign pizza nation." },
+      { emoji: "🔬", title: "Scientific study: naps", desc: "A fake research paper with charts proving naps cure everything, peer-reviewed by your cat." },
+      { emoji: "🎖️", title: "Medal of honor for waking up", desc: "A military-style commendation page awarding bravery for getting out of bed on Monday." },
+      { emoji: "🍽️", title: "Restaurant menu for cereal", desc: "A fancy bistro menu with snooty French descriptions for plain bowls of breakfast cereal." },
+      { emoji: "⚠️", title: "Hazard warning: my room", desc: "OSHA-style safety signage warning visitors about the dangers of entering your bedroom." },
+      { emoji: "🗳️", title: "Vote: best snack 2026", desc: "A mock election page with candidate snacks, campaign slogans, and rigged polling results." },
+      { emoji: "📉", title: "My motivation stock crash", desc: "A finance dashboard tracking your daily motivation like a plummeting stock ticker." },
+      { emoji: "🎬", title: "Movie trailer: doing laundry", desc: "An epic film-poster page hyping the blockbuster thriller of you finally folding clothes." },
+      { emoji: "🧾", title: "Receipt for one bad day", desc: "An itemized store receipt totaling up everything that went wrong, taxes included." },
+      { emoji: "🏅", title: "Olympics of being lazy", desc: "A sports-event page with medal standings for couch-lying, snoozing, and procrastinating." },
+      { emoji: "👻", title: "Haunted by my homework", desc: "A paranormal-investigation site documenting the ghost of assignments you never finished." },
+      { emoji: "🛂", title: "Passport to my closet", desc: "An official travel document granting you entry into the foreign nation of your wardrobe." },
+      { emoji: "📢", title: "Press release: I ate lunch", desc: "A corporate announcement page formally notifying the world that you consumed a sandwich." },
+      { emoji: "🐈", title: "My cat's official biography", desc: "A pompous Wikipedia-style page chronicling the noble life and reign of your cat." },
+      { emoji: "💍", title: "I'm engaged to my bed", desc: "A wedding-announcement site celebrating your loving lifelong commitment to sleeping in." },
+      { emoji: "🚔", title: "Crimes committed by my brother", desc: "A police-blotter page logging sibling offenses with mugshots and pending charges." },
+      { emoji: "📊", title: "Annual report: my snack budget", desc: "A corporate shareholder report with pie charts breaking down your chip spending." },
+      { emoji: "🎤", title: "Diss track lyrics vs. Monday", desc: "A lyrics page for the savage rap battle between you and the worst day of the week." },
+      { emoji: "🏚️", title: "Real estate listing: under my bed", desc: "A glossy property ad selling the spacious dusty realm beneath your mattress." },
+      { emoji: "🛐", title: "The Church of Pizza Friday", desc: "A fake religion homepage with sacred commandments and weekly cheese-based rituals." },
+      { emoji: "🦸", title: "Superhero origin: snooze button", desc: "A comic-style page introducing your alter ego whose only power is hitting snooze." },
+      { emoji: "📜", title: "My will (for my snacks)", desc: "A last-will-and-testament page deciding which friend inherits your hidden candy stash." },
+      { emoji: "🎟️", title: "Tickets to watch me think", desc: "An event-booking page selling premium seats to the thrilling spectacle of you deciding." },
+      { emoji: "🏷️", title: "Conspiracy: the fridge moves food", desc: "A red-string corkboard page exposing how your fridge secretly rearranges leftovers." },
+      { emoji: "📃", title: "Apology letter from my alarm", desc: "A formal groveling apology written by your alarm clock for waking you up." },
+      { emoji: "🧪", title: "Nutrition facts for vibes", desc: "A food-label parody listing the daily values of chaos, drama, and main-character energy." },
+      { emoji: "🗞️", title: "Obituary for my phone battery", desc: "A tender newspaper obituary mourning the battery that died at 3% too soon." },
+      { emoji: "🎓", title: "Diploma in overthinking", desc: "A fancy certificate page awarding you a doctorate in worrying about everything." },
+      { emoji: "🚀", title: "Mission control: leaving the house", desc: "A NASA-style countdown page coordinating the impossible launch of you going outside." },
+      { emoji: "📦", title: "Unboxing my emotional baggage", desc: "A YouTuber-style unboxing page dramatically revealing the contents of your feelings." },
+      { emoji: "🥇", title: "World record: ignoring texts", desc: "A Guinness-style certification page verifying your unbeaten streak of leaving people on read." },
+      { emoji: "🏨", title: "Hotel review: my grandma's couch", desc: "A five-star travel review rating the legendary comfort and snacks of Grandma's sofa." },
+      { emoji: "⚗️", title: "Patent: the perfect sandwich", desc: "An official patent-application page with diagrams claiming you invented the ultimate sandwich." },
+      { emoji: "📡", title: "Weather forecast for my mood", desc: "A meteorology page with maps predicting scattered grumpiness and a chance of meltdowns." },
+      { emoji: "🪦", title: "Graveyard of my hobbies", desc: "A cemetery page with tombstones for every hobby you abandoned after three days." },
+      { emoji: "🎀", title: "Customer complaint to Monday", desc: "A formal complaint-form page demanding a full refund for another ruined week." },
+    ];
+
+    const card = document.getElementById("idea-card");
+    const emojiEl = document.getElementById("idea-emoji");
+    const titleEl = document.getElementById("idea-title");
+    const descEl = document.getElementById("idea-desc");
+    const tagEl = document.getElementById("idea-tag");
+    const button = document.getElementById("idea-button");
+    const countEl = document.getElementById("idea-count");
+
+    countEl.textContent = IDEAS.length + " ideas in the machine 🧋 build any of them with HTML + CSS";
+
+    let lastIndex = -1;
+
+    function pickIdea() {
+      let index = Math.floor(Math.random() * IDEAS.length);
+      while (IDEAS.length > 1 && index === lastIndex) {
+        index = Math.floor(Math.random() * IDEAS.length);
+      }
+      lastIndex = index;
+      const idea = IDEAS[index];
+
+      tagEl.textContent = "idea #" + (index + 1);
+      emojiEl.textContent = idea.emoji;
+      titleEl.textContent = idea.title;
+      descEl.textContent = idea.desc;
+
+      card.classList.remove("is-rolling");
+      void card.offsetWidth;
+      card.classList.add("is-rolling");
+    }
+
+    button.addEventListener("click", pickIdea);
+  </script>
+</body>
+
+</html>
