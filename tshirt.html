@@ -39,7 +39,7 @@
             <div class="cd-cell"><span class="cd-num" id="cd-mins">0</span><span class="cd-lbl">min</span></div>
             <div class="cd-cell"><span class="cd-num" id="cd-secs">0</span><span class="cd-lbl">sec</span></div>
           </div>
-          <div class="deadline" id="deadline-line">Starts Monday, June 29</div>
+          <div class="deadline" id="deadline-line">Starts Tuesday, June 30</div>
         </div>
       </div>
 
@@ -90,8 +90,8 @@
     });
   </script>
   <script>
-    const START = new Date("2026-06-29T00:00:00");
-    const END = new Date("2026-07-06T00:00:00");
+    const START = new Date("2026-06-30T00:00:00");
+    const END = new Date("2026-07-07T00:00:00");
     const DAY_MS = 86400000;
 
     const cd = {
@@ -117,7 +117,7 @@
       const now = new Date();
       if (now < START) {
         showClock(START - now);
-        deadlineLine.textContent = "Starts Monday, June 29";
+        deadlineLine.textContent = "Starts Tuesday, June 30";
       } else if (now < END) {
         countdown.classList.add("is-live");
         const day = Math.min(7, Math.floor((now - START) / DAY_MS) + 1);
