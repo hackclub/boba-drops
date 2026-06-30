@@ -1,6 +1,6 @@
 <p align="center"><img alt="Boba Drops" src="./images/logo.svg"></a>
 <p align="center">
-  <span>Build your first site</span><span> • </span><span>Get free boba</span>
+  <span>Build your awesome site</span><span> • </span><span>Get free boba</span>
 </p>
 <hr />
 
